@@ -30,6 +30,7 @@ import com.example.asus.dconfo_app.presentation.view.activity.docente.fonico.New
 import com.example.asus.dconfo_app.presentation.view.activity.docente.grupos.GrupoDocenteActivity;
 import com.example.asus.dconfo_app.presentation.view.activity.docente.notas.NotasActivity;
 import com.example.asus.dconfo_app.presentation.view.activity.docente.notas.PorcentNotasActivity;
+import com.example.asus.dconfo_app.presentation.view.activity.docente.reportes.ShowReportsDocActivity;
 import com.example.asus.dconfo_app.presentation.view.activity.docente.silabico.AsignarEjercicioSilabicoActivity;
 import com.example.asus.dconfo_app.presentation.view.activity.docente.silabico.NewEjercicioSilabicoDocenteActivity;
 import com.example.asus.dconfo_app.presentation.view.adapter.ConcienciaTipoAdapterRecyclerView;
@@ -48,6 +49,7 @@ public class HomeDocenteActivity extends AppCompatActivity
     Intent intentEjercicios;
     Intent intentConsultarNotas;
     Intent intentConsultarPorcentajes;
+    Intent intentShowReportes;
     String namegrupo;
     String namedocente;
     int iddocente;
@@ -336,9 +338,10 @@ public class HomeDocenteActivity extends AppCompatActivity
             parametros1.putString("namedocente", namedocente);
             parametros1.putInt("idgrupo", idgrupo);
 
-            intentConsultarPorcentajes = new Intent(HomeDocenteActivity.this, PorcentNotasActivity.class);
-            intentConsultarPorcentajes.putExtras(parametros1);
-            startActivity(intentConsultarPorcentajes);
+           // intentConsultarPorcentajes = new Intent(HomeDocenteActivity.this, PorcentNotasActivity.class);
+            intentShowReportes = new Intent(HomeDocenteActivity.this, ShowReportsDocActivity.class);
+            intentShowReportes.putExtras(parametros1);
+            startActivity(intentShowReportes);
             String TAG = "TAG";
             Log.i(TAG, "iddocente: " + iddocente);
             Log.i(TAG, "namedocente: " + namedocente);

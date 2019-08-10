@@ -20,6 +20,7 @@ public class ReportsDocActivity extends AppCompatActivity {
         pdfView=findViewById(R.id.pdfView);
         Bundle bundle=getIntent().getExtras();
         if (bundle!=null){
+            //obtiene direccion
             file=new File(bundle.getString("path",""));
         }
         pdfView.fromFile(file)

@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".presentation.view.activity.docente.reportes.ShowReportsDocActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <include layout="@layout/actionbar_toolbar" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese nombre archivo"
+        android:id="@+id/edt_pdf_doc"/>
+
+    <Button
+        android:id="@+id/btn_pdf_doc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PDF"
+        android:theme="@style/RaisedButtonGray"
+        android:onClick="pdfview"/>
+
+</LinearLayout>

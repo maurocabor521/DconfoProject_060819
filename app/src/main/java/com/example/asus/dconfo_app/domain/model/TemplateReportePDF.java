@@ -37,8 +37,9 @@ public class TemplateReportePDF {
     }
 
     //abrir archivo
-    public void openDocument() {
-        createFile();
+    //public void openDocument() {
+    public void openDocument(String nombre) {
+        createFile(nombre);
         try {
             document = new Document(PageSize.LETTER);
             pdfWriter = PdfWriter.getInstance(document, new FileOutputStream(pdffile));
@@ -49,11 +50,13 @@ public class TemplateReportePDF {
         }
     }
 
-    private void createFile() {
+    //private void createFile() {
+    private void createFile(String nombre) {
         File folder = new File(Environment.getExternalStorageDirectory().toString(), "PDF");
         if (!folder.exists()) {
             folder.mkdir();
-            pdffile = new File(folder, "TemplatePDF.pdf");
+           //pdffile = new File(folder, "TemplatePDF.pdf");
+            pdffile = new File(folder, nombre+".pdf");
 
         }
     }
