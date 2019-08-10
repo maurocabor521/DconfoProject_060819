@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Environment;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.asus.dconfo_app.presentation.view.activity.docente.reportes.ReportsDocActivity;
 import com.itextpdf.text.BaseColor;
@@ -19,7 +20,9 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class TemplateReportePDF {
     private Context context;
@@ -31,6 +34,7 @@ public class TemplateReportePDF {
     private Font fsubTitle = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
     private Font fText = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD);
     private Font fHighText = new Font(Font.FontFamily.TIMES_ROMAN, 15, Font.BOLD, BaseColor.RED);
+    private String mFilePath;
 
     public TemplateReportePDF(Context context) {
         this.context = context;
@@ -38,11 +42,12 @@ public class TemplateReportePDF {
 
     //abrir archivo
     //public void openDocument() {
-    public void openDocument(String nombre) {
-        createFile(nombre);
+    public void openDocument(String nameFile) {
+        createFile(nameFile);
         try {
             document = new Document(PageSize.LETTER);
-            pdfWriter = PdfWriter.getInstance(document, new FileOutputStream(pdffile));
+            //pdfWriter = PdfWriter.getInstance(document, new FileOutputStream(pdffile));
+            pdfWriter = PdfWriter.getInstance(document, new FileOutputStream(mFilePath));
             //abrir documento
             document.open();
         } catch (Exception e) {
@@ -51,15 +56,35 @@ public class TemplateReportePDF {
     }
 
     //private void createFile() {
-    private void createFile(String nombre) {
-        File folder = new File(Environment.getExternalStorageDirectory().toString(), "PDF");
+    public void createFile(String nameFile) {
+        String mFileName = new SimpleDateFormat("ddMMyyyy_HHmm", Locale.getDefault()).format(System.currentTimeMillis());
+        //mFilePath = Environment.getExternalStorageDirectory() + "/" + mFileName + ".pdf";
+        mFilePath = Environment.getExternalStorageDirectory() + "/" + nameFile + ".pdf";
+       /* File folder = new File(Environment.getExternalStorageDirectory().toString(), "PDF");
         if (!folder.exists()) {
             folder.mkdir();
            //pdffile = new File(folder, "TemplatePDF.pdf");
             pdffile = new File(folder, nombre+".pdf");
 
-        }
+        }*/
     }
+
+ /*   public void savePDF() {
+        Document mDoc = new Document();
+        String mFileName = new SimpleDateFormat("ddMMyyyy_HHmm", Locale.getDefault()).format(System.currentTimeMillis());
+        String mFilePath = Environment.getExternalStorageDirectory() + "/" + mFileName + ".pdf";
+        try {
+            PdfWriter.getInstance(mDoc, new FileOutputStream(mFilePath));
+            mDoc.open();
+            //String mText=mTextEt.getText().toString();
+            // mDoc.addAuthor("Docente");
+            // mDoc.add(new Paragraph(mText));
+            // mDoc.close();
+            //Toast.makeText(getApplicationContext(),mFileName+".pdf\nis Saved to\n"+mFilePath,Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            //Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+        }
+    }*/
 
     //cerrar documento
     public void closeDocument() {
@@ -150,8 +175,9 @@ public class TemplateReportePDF {
     }
 
     public void viewPdf() {
-        Intent intent=new Intent(context, ReportsDocActivity.class);
-        intent.putExtra("path",pdffile.getAbsolutePath());
+        Intent intent = new Intent(context, ReportsDocActivity.class);
+        //intent.putExtra("path", pdffile.getAbsolutePath());
+        intent.putExtra("path", mFilePath.toString());
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }

@@ -2,6 +2,7 @@ package com.example.asus.dconfo_app.presentation.view.activity.docente.reportes;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -47,20 +48,35 @@ public class ShowReportsDocActivity extends AppCompatActivity {
     }
 
     private void crearTemplete() {
-        if (nameArchivo!=""){
+        //if (nameArchivo!=""){
             templateReportePDF = new TemplateReportePDF(getApplicationContext());
-            templateReportePDF.openDocument(nameArchivo);
-            templateReportePDF.addMetaData("Cursos", "Informes", "Juan Valdez");
-            templateReportePDF.addTitle("Curso 1-A", "Asignatura", "10/08/19");
+            templateReportePDF.openDocument(edt_pdf_doc.getText().toString());
+            //templateReportePDF.savePDF();
+            templateReportePDF.addMetaData(edt_pdf_doc.getText().toString(), "Informes", "Juan Valdez");
+            templateReportePDF.addTitle(edt_pdf_doc.getText().toString(), "Asignatura", "10/08/19");
             templateReportePDF.addParagraph(shortText);
             templateReportePDF.addParagraph(longText);
             templateReportePDF.createTable(header, getClients());
             templateReportePDF.closeDocument();
+       // }
+    }
+
+    private void checkPermission() {
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M){
+            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)== PackageManager.PERMISSION_DENIED){
+                String[]permission={Manifest.permission.WRITE_EXTERNAL_STORAGE};
+                requestPermissions(permission,MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL);
+            }else{
+                //savePDF();
+            }
+
+        }else {
+           // savePDF();
         }
     }
 
     //verificar permisos lectura y escritura Sd
-    private void checkPermission() {
+  /*  private void checkPermission() {
 
         if (ContextCompat.checkSelfPermission(ShowReportsDocActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
                 PackageManager.PERMISSION_GRANTED) {
@@ -73,7 +89,7 @@ public class ShowReportsDocActivity extends AppCompatActivity {
                         MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL);
             }
         }
-    }
+    }*/
 
     public void pdfview(View view) {
         crearTemplete();
