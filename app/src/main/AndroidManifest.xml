@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".presentation.view.activity.docente.reportes.ShowReportsDocActivity"></activity>
+        <activity android:name=".presentation.view.activity.docente.reportes.MyReportsDocActivity"></activity>
+        <activity android:name=".presentation.view.activity.docente.reportes.ShowReportsDocActivity" />
         <activity android:name=".presentation.view.activity.docente.reportes.ReportsDocActivity" />
         <activity android:name=".presentation.view.activity.docente.notas.PorcentNotasActivity" />
         <activity
