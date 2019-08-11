@@ -33,10 +33,10 @@ public class ShowReportsDocActivity extends AppCompatActivity {
     private String longText;
     private TemplateReportePDF templateReportePDF;
     private Button btn_pdf;
-    private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL=1;
+    private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL = 1;
     EditText edt_pdf_doc;
     EditText edt_pdf_doc_comentario;
-    String nameArchivo="";
+    String nameArchivo = "";
     int fonico;
     int lexico;
     int silabico;
@@ -60,10 +60,10 @@ public class ShowReportsDocActivity extends AppCompatActivity {
         edt_pdf_doc = findViewById(R.id.edt_pdf_doc);
         edt_pdf_doc_comentario = findViewById(R.id.edt_pdf_comentario);
         edt_pdf_doc.setText(nameEst);
-        nameArchivo=edt_pdf_doc.getText().toString();
+        nameArchivo = edt_pdf_doc.getText().toString();
 
         checkPermission();
-        mFileDate=new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss", Locale.getDefault()).format(System.currentTimeMillis());
+        mFileDate = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss", Locale.getDefault()).format(System.currentTimeMillis());
 
         showToolbar("Generar Reporte" + " - " + nameEst, true);
 
@@ -88,29 +88,31 @@ public class ShowReportsDocActivity extends AppCompatActivity {
 
     private void crearTemplete() {
         //if (nameArchivo!=""){
-            templateReportePDF = new TemplateReportePDF(getApplicationContext());
-            templateReportePDF.openDocument(edt_pdf_doc.getText().toString());
-            //templateReportePDF.savePDF();
-            templateReportePDF.addMetaData(edt_pdf_doc.getText().toString(), "Informes", "Juan Valdez");
-            templateReportePDF.addTitle(edt_pdf_doc.getText().toString(), "Desarrollo Conciencia Fonológica, Grupo: "+String.valueOf(idgrupo), mFileDate);
-            templateReportePDF.addParagraph(shortText);
-            templateReportePDF.addParagraph(longText);
-            templateReportePDF.createTable(header, getClients());
-            templateReportePDF.closeDocument();
-       // }
+        templateReportePDF = new TemplateReportePDF(getApplicationContext());
+        templateReportePDF.openDocument(edt_pdf_doc.getText().toString());
+        //templateReportePDF.savePDF();
+        templateReportePDF.addGraphic();
+        templateReportePDF.addMetaData(edt_pdf_doc.getText().toString(), "Informes", "Juan Valdez");
+        templateReportePDF.addTitle(edt_pdf_doc.getText().toString(), "Desarrollo Conciencia Fonológica, Grupo: " + String.valueOf(idgrupo), mFileDate);
+
+        templateReportePDF.addParagraph(shortText);
+        templateReportePDF.addParagraph(longText);
+        templateReportePDF.createTable(header, getClients());
+        templateReportePDF.closeDocument();
+        // }
     }
 
     private void checkPermission() {
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M){
-            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)== PackageManager.PERMISSION_DENIED){
-                String[]permission={Manifest.permission.WRITE_EXTERNAL_STORAGE};
-                requestPermissions(permission,MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL);
-            }else{
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+                String[] permission = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
+                requestPermissions(permission, MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL);
+            } else {
                 //savePDF();
             }
 
-        }else {
-           // savePDF();
+        } else {
+            // savePDF();
         }
     }
 
@@ -131,7 +133,7 @@ public class ShowReportsDocActivity extends AppCompatActivity {
     }*/
 
     public void pdfview(View view) {
-        longText=edt_pdf_doc_comentario.getText().toString();
+        longText = edt_pdf_doc_comentario.getText().toString();
         crearTemplete();
         templateReportePDF.viewPdf();
     }

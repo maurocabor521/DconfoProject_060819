@@ -2,29 +2,42 @@ package com.example.asus.dconfo_app.domain.model;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Environment;
 import android.util.Log;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.asus.dconfo_app.R;
 import com.example.asus.dconfo_app.presentation.view.activity.docente.reportes.ReportsDocActivity;
+import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfDocument;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Locale;
+
 
 public class TemplateReportePDF {
     private Context context;
@@ -38,6 +51,8 @@ public class TemplateReportePDF {
     private Font fText = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD);
     private Font fHighText = new Font(Font.FontFamily.TIMES_ROMAN, 15, Font.BOLD, BaseColor.RED);
     private String mFilePath;
+    //LinearLayout linearLayout;
+    //public static final String IMG = "resources/images/bruno.jpg";
 
     public TemplateReportePDF(Context context) {
         this.context = context;
@@ -114,6 +129,35 @@ public class TemplateReportePDF {
             document.add(paragraph);
         } catch (Exception e) {
             Log.e("addParagraph", e.toString());
+        }
+    }
+
+    public  void addGraphic()  {
+      /*  Document document = new Document();
+        PdfWriter.getInstance(document, new FileOutputStream("sample1.pdf"));
+        document.open();
+        Drawable drawable = context.getResources().getDrawable(R.drawable.ic_conciencia_fonica);
+        //document.add(drawable);
+        Image img = Image.getInstance("dconfo.png");
+        document.add(new Paragraph("Sample 1: This is simple image demo."));
+        document.add(img);
+        document.close();
+        System.out.println("Done");*/
+        Bitmap bm = BitmapFactory.decodeResource(context.getResources(), R.drawable.dconfo);
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bm.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        Image img = null;
+        byte[] byteArray = stream.toByteArray();
+        try {
+            img = Image.getInstance(byteArray);
+            img.setAlignment(Element.ALIGN_CENTER);
+            document.add(img);
+        } catch (BadElementException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (DocumentException e) {
+            e.printStackTrace();
         }
     }
 
