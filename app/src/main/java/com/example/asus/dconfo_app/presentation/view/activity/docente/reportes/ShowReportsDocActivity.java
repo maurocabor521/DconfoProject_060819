@@ -17,35 +17,74 @@ import com.example.asus.dconfo_app.R;
 import com.example.asus.dconfo_app.domain.model.TemplateReportePDF;
 import com.example.asus.dconfo_app.presentation.view.contract.CategoriaEjerciciosContract;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ShowReportsDocActivity extends AppCompatActivity {
 
-    private String[] header = {"Id", "Nombre", "Apellido"};
-    private String shortText = "Hola";
-    private String longText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. " +
+    private String[] header1 = {"Id", "Nombre", "Apellido"};
+    private String[] header = {"Fónica", "Léxica", "Silábica"};
+    private String shortText = "Saludos!";
+    /*private String longText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. " +
             "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, " +
-            "when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
+            "when an unknown printer took a galley of type and scrambled it to make a type specimen book."; */
+
+    private String longText;
     private TemplateReportePDF templateReportePDF;
     private Button btn_pdf;
     private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL=1;
     EditText edt_pdf_doc;
+    EditText edt_pdf_doc_comentario;
     String nameArchivo="";
+    int fonico;
+    int lexico;
+    int silabico;
+    String nameEst;
+    int idgrupo;
+    String mFileDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_reports_doc);
 
+        Bundle datos = this.getIntent().getExtras();
+        fonico = datos.getInt("fonico");
+        lexico = datos.getInt("lexico");
+        silabico = datos.getInt("silabico");
+        nameEst = datos.getString("nameEst");
+        idgrupo = datos.getInt("idgrupo");
+
         btn_pdf = findViewById(R.id.btn_pdf_doc);
         edt_pdf_doc = findViewById(R.id.edt_pdf_doc);
+        edt_pdf_doc_comentario = findViewById(R.id.edt_pdf_comentario);
+        edt_pdf_doc.setText(nameEst);
         nameArchivo=edt_pdf_doc.getText().toString();
 
         checkPermission();
+        mFileDate=new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss", Locale.getDefault()).format(System.currentTimeMillis());
 
-
+        showToolbar("Generar Reporte" + " - " + nameEst, true);
 
     }
+
+    public void showToolbar(String tittle, boolean upButton) {
+        android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar_ejercicio);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(tittle);
+        //getSupportActionBar();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+    }
+
+    //método que permite volver al padre conservando las variables
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
+    //*************************************************************************************************
 
     private void crearTemplete() {
         //if (nameArchivo!=""){
@@ -53,7 +92,7 @@ public class ShowReportsDocActivity extends AppCompatActivity {
             templateReportePDF.openDocument(edt_pdf_doc.getText().toString());
             //templateReportePDF.savePDF();
             templateReportePDF.addMetaData(edt_pdf_doc.getText().toString(), "Informes", "Juan Valdez");
-            templateReportePDF.addTitle(edt_pdf_doc.getText().toString(), "Asignatura", "10/08/19");
+            templateReportePDF.addTitle(edt_pdf_doc.getText().toString(), "Desarrollo Conciencia Fonológica, Grupo: "+String.valueOf(idgrupo), mFileDate);
             templateReportePDF.addParagraph(shortText);
             templateReportePDF.addParagraph(longText);
             templateReportePDF.createTable(header, getClients());
@@ -92,16 +131,17 @@ public class ShowReportsDocActivity extends AppCompatActivity {
     }*/
 
     public void pdfview(View view) {
+        longText=edt_pdf_doc_comentario.getText().toString();
         crearTemplete();
         templateReportePDF.viewPdf();
     }
 
     private ArrayList<String[]> getClients() {
         ArrayList<String[]> rows = new ArrayList<>();
-        rows.add(new String[]{"1", "Pedro", "Lopez"});
-        rows.add(new String[]{"2", "David", "Amaral"});
+        rows.add(new String[]{String.valueOf(fonico), String.valueOf(lexico), String.valueOf(silabico)});
+       /* rows.add(new String[]{"2", "David", "Amaral"});
         rows.add(new String[]{"3", "Lina", "Aldana"});
-        rows.add(new String[]{"4", "Sebastian", "Arias"});
+        rows.add(new String[]{"4", "Sebastian", "Arias"});*/
         return rows;
     }
 

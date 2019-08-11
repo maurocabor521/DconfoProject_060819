@@ -2,6 +2,7 @@ package com.example.asus.dconfo_app.domain.model;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
@@ -14,6 +15,7 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -29,6 +31,7 @@ public class TemplateReportePDF {
     private File pdffile;
     private Document document;
     private PdfWriter pdfWriter;
+    PdfWriter writer;
     private Paragraph paragraph;
     private Font ftitle = new Font(Font.FontFamily.TIMES_ROMAN, 20, Font.BOLD);
     private Font fsubTitle = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
@@ -69,22 +72,7 @@ public class TemplateReportePDF {
         }*/
     }
 
- /*   public void savePDF() {
-        Document mDoc = new Document();
-        String mFileName = new SimpleDateFormat("ddMMyyyy_HHmm", Locale.getDefault()).format(System.currentTimeMillis());
-        String mFilePath = Environment.getExternalStorageDirectory() + "/" + mFileName + ".pdf";
-        try {
-            PdfWriter.getInstance(mDoc, new FileOutputStream(mFilePath));
-            mDoc.open();
-            //String mText=mTextEt.getText().toString();
-            // mDoc.addAuthor("Docente");
-            // mDoc.add(new Paragraph(mText));
-            // mDoc.close();
-            //Toast.makeText(getApplicationContext(),mFileName+".pdf\nis Saved to\n"+mFilePath,Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
-            //Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
-        }
-    }*/
+
 
     //cerrar documento
     public void closeDocument() {
@@ -121,8 +109,8 @@ public class TemplateReportePDF {
     public void addParagraph(String text) {
         try {
             paragraph = new Paragraph(text, fText);
+            paragraph.setSpacingAfter(1);
             paragraph.setSpacingAfter(5);
-            paragraph.setSpacingBefore(5);
             document.add(paragraph);
         } catch (Exception e) {
             Log.e("addParagraph", e.toString());
@@ -134,6 +122,7 @@ public class TemplateReportePDF {
     public void createTable(String[] header, ArrayList<String[]> clients) {
         try {
             paragraph = new Paragraph();
+            paragraph.setSpacingBefore(10);
             paragraph.setFont(fText);
             //numero de columnas
             PdfPTable pdfPTable = new PdfPTable(header.length);

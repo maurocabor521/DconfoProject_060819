@@ -111,10 +111,10 @@
                 android:id="@+id/nav_consultar_notas"
                 android:icon="@drawable/ic_menu_share"
                 android:title="Consultar Notas " />
-            <item
+            <!--item
                 android:id="@+id/nav_consultar_porcentajes"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Consultar Porcentajes " />
+                android:title="Consultar Porcentajes " /-->
             <item
                 android:id="@+id/nav_reportes"
                 android:icon="@drawable/ic_menu_send"

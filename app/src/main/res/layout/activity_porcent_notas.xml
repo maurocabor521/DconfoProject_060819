@@ -41,6 +41,22 @@
                 android:layout_height="400dp"
                 android:visibility="gone"/>
 
+            <Button
+                android:id="@+id/btn_docente_porcentajes_reportes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Generar Reporte"
+                android:theme="@style/RaisedButtonOrange"
+                android:visibility="visible"
+                android:layout_gravity="center_horizontal"/>
+
+
+            <View
+                android:id="@+id/divider5"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="?android:attr/listDivider" />
+
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/chart1"
                 android:layout_width="match_parent"

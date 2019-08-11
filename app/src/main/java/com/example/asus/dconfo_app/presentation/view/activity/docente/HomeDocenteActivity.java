@@ -332,7 +332,7 @@ public class HomeDocenteActivity extends AppCompatActivity
             Log.i(TAG, "iddocente: " + iddocente);
             Log.i(TAG, "namedocente: " + namedocente);
 
-        }else if (id == R.id.nav_consultar_porcentajes) {
+        }else if (id == R.id.nav_reportes) {
             Bundle parametros1 = new Bundle();
             parametros1.putInt("iddocente", iddocente);
             parametros1.putString("namedocente", namedocente);

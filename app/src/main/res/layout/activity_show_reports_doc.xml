@@ -8,18 +8,34 @@
     tools:context=".presentation.view.activity.docente.reportes.ShowReportsDocActivity">
 
     <include layout="@layout/actionbar_toolbar" />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Ingrese nombre archivo"
-        android:id="@+id/edt_pdf_doc"/>
 
-    <Button
-        android:id="@+id/btn_pdf_doc"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="PDF"
-        android:theme="@style/RaisedButtonGray"
-        android:onClick="pdfview"/>
+        android:orientation="vertical"
+        android:layout_margin="20dp">
+
+        <EditText
+            android:id="@+id/edt_pdf_doc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre Estudiante o Grupo Estudiantes" />
+
+        <EditText
+            android:id="@+id/edt_pdf_comentario"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:gravity="start"
+            android:hint="Ingrese comentario informe" />
+
+        <Button
+            android:id="@+id/btn_pdf_doc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:onClick="pdfview"
+            android:text="Generar PDF"
+            android:theme="@style/RaisedButtonGray" />
+    </LinearLayout>
 
 </LinearLayout>

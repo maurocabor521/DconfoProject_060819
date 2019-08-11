@@ -184,6 +184,7 @@ public class FindNotasXEstudianteFragment extends Fragment implements Response.L
                 bundle.putInt("fonico", NDF);
                 bundle.putInt("lexico", NDL);
                 bundle.putInt("silabico", NDS);
+                bundle.putInt("idgrupo", idgrupo);
                 bundle.putString("nameEst", nameEst);
                 System.out.println("nameEst_: " + nameEst);
                 Intent intent = new Intent(getActivity(), PorcentNotasActivity.class);

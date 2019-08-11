@@ -1,10 +1,14 @@
 package com.example.asus.dconfo_app.presentation.view.activity.docente.notas;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.asus.dconfo_app.R;
+import com.example.asus.dconfo_app.presentation.view.activity.docente.reportes.ShowReportsDocActivity;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.BarData;
@@ -37,7 +41,9 @@ public class PorcentNotasActivity extends AppCompatActivity {
     int lexico;
     int silabico;
     String nameEst;
+    int idgrupo;
     TextView txt_nameEst;
+    Button btn_gen_reportes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +54,24 @@ public class PorcentNotasActivity extends AppCompatActivity {
         fonico = datos.getInt("fonico");
         lexico = datos.getInt("lexico");
         silabico = datos.getInt("silabico");
+        idgrupo = datos.getInt("idgrupo");
         nameEst = datos.getString("nameEst");
+
+        btn_gen_reportes=findViewById(R.id.btn_docente_porcentajes_reportes);
+        btn_gen_reportes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle=new Bundle();
+                bundle.putString("nameEst",nameEst);
+                bundle.putInt("fonico",fonico);
+                bundle.putInt("lexico",lexico);
+                bundle.putInt("silabico",silabico);
+                bundle.putInt("idgrupo",idgrupo);
+                Intent intent=new Intent(PorcentNotasActivity.this, ShowReportsDocActivity.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
 
        /* lista_idEstudiante=null;
         lista_Calif_Ejercicio=null;*/
