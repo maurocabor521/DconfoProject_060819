@@ -55,7 +55,7 @@ public class ReportsDocActivity extends AppCompatActivity {
                 Uri uri = Uri.fromFile(file);
                 Intent emailIntent = new Intent(Intent.ACTION_SEND);
                 emailIntent.putExtra(Intent.EXTRA_EMAIL, mailto);
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Calc PDF Report");
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "PDF Report");
                 emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Hi PDF is attached in this mail. ");
                 emailIntent.setType("application/pdf");
                 emailIntent.putExtra(Intent.EXTRA_STREAM, uri);

@@ -102,6 +102,7 @@ public class FindNotasXEstudianteFragment extends Fragment implements Response.L
     int SUMNDL = 0;
     int SUMNDS = 0;
     String nameEst;
+    String tipoEst;
     String actividad;
 
 
@@ -186,6 +187,7 @@ public class FindNotasXEstudianteFragment extends Fragment implements Response.L
                 bundle.putInt("silabico", NDS);
                 bundle.putInt("idgrupo", idgrupo);
                 bundle.putString("nameEst", nameEst);
+                bundle.putString("tipoEst", tipoEst);
                 System.out.println("nameEst_: " + nameEst);
                 Intent intent = new Intent(getActivity(), PorcentNotasActivity.class);
                 intent.putExtras(bundle);
@@ -198,6 +200,7 @@ public class FindNotasXEstudianteFragment extends Fragment implements Response.L
         btn_BuscarTodas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tipoEst = "est";
                 listaDeberes_full = new ArrayList<>();
                 lista_idEstudiante = new ArrayList<>();
                 listaIdEstudiantes = new ArrayList<>();
@@ -231,6 +234,7 @@ public class FindNotasXEstudianteFragment extends Fragment implements Response.L
         btn_BuscarAct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tipoEst = "";
                 listaDeberes_full = new ArrayList<>();
                 lista_idEstudiante = new ArrayList<>();
                 listaIdEstudiantes = new ArrayList<>();
@@ -266,6 +270,7 @@ public class FindNotasXEstudianteFragment extends Fragment implements Response.L
         btn_BuscarGrupo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tipoEst = "";
                 listaDeberes_full = new ArrayList<>();
                 lista_idEstudiante = new ArrayList<>();
                 listaIdEstudiantes = new ArrayList<>();
@@ -311,7 +316,7 @@ public class FindNotasXEstudianteFragment extends Fragment implements Response.L
 
         if (flag.equals("1")) {
 
-            String url = "http://" + url_lh + "/proyecto_dconfo_v1/8_5wsJSONConsultarListaDeberesEst_nota.php?estudiante_idestudiante=" + idestudiante+"&iddocente="+iddocente;
+            String url = "http://" + url_lh + "/proyecto_dconfo_v1/8_5wsJSONConsultarListaDeberesEst_nota.php?estudiante_idestudiante=" + idestudiante + "&iddocente=" + iddocente;
 
             url = url.replace(" ", "%20");
             //hace el llamado a la url
@@ -346,7 +351,7 @@ public class FindNotasXEstudianteFragment extends Fragment implements Response.L
         }//flag="2"
         else if (flag.equals("3")) {
 
-            String url = "http://" + url_lh + "/proyecto_dconfo_v1/8_5_3wsJSONConsultarListaDeberesEst_nota_Act.php?estudiante_idestudiante="+idestudiante+"&actividad="+actividad;
+            String url = "http://" + url_lh + "/proyecto_dconfo_v1/8_5_3wsJSONConsultarListaDeberesEst_nota_Act.php?estudiante_idestudiante=" + idestudiante + "&actividad=" + actividad;
 
             url = url.replace(" ", "%20");
             //hace el llamado a la url
@@ -379,7 +384,7 @@ public class FindNotasXEstudianteFragment extends Fragment implements Response.L
     @Override
     public void onResponse(JSONObject response) {
         progreso.hide();
-        if (flag.equals("1")||flag.equals("3")) {
+        if (flag.equals("1") || flag.equals("3")) {
             //Toast.makeText(getApplicationContext(), "Mensaje: " + response.toString(), Toast.LENGTH_SHORT).show();
             DeberEstudiante deberEstudiante = null;
             JSONArray json = response.optJSONArray("deber_nota1");

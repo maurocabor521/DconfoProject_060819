@@ -41,6 +41,7 @@ public class PorcentNotasActivity extends AppCompatActivity {
     int lexico;
     int silabico;
     String nameEst;
+    String tipoEst;
     int idgrupo;
     TextView txt_nameEst;
     Button btn_gen_reportes;
@@ -56,22 +57,28 @@ public class PorcentNotasActivity extends AppCompatActivity {
         silabico = datos.getInt("silabico");
         idgrupo = datos.getInt("idgrupo");
         nameEst = datos.getString("nameEst");
+        tipoEst = datos.getString("tipoEst");
 
-        btn_gen_reportes=findViewById(R.id.btn_docente_porcentajes_reportes);
-        btn_gen_reportes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle bundle=new Bundle();
-                bundle.putString("nameEst",nameEst);
-                bundle.putInt("fonico",fonico);
-                bundle.putInt("lexico",lexico);
-                bundle.putInt("silabico",silabico);
-                bundle.putInt("idgrupo",idgrupo);
-                Intent intent=new Intent(PorcentNotasActivity.this, ShowReportsDocActivity.class);
-                intent.putExtras(bundle);
-                startActivity(intent);
-            }
-        });
+
+        btn_gen_reportes = findViewById(R.id.btn_docente_porcentajes_reportes);
+        if (tipoEst.equals("est")) {
+            btn_gen_reportes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("nameEst", nameEst);
+                    bundle.putInt("fonico", fonico);
+                    bundle.putInt("lexico", lexico);
+                    bundle.putInt("silabico", silabico);
+                    bundle.putInt("idgrupo", idgrupo);
+                    Intent intent = new Intent(PorcentNotasActivity.this, ShowReportsDocActivity.class);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                }
+            });
+        } else {
+            btn_gen_reportes.setVisibility(View.GONE);
+        }
 
        /* lista_idEstudiante=null;
         lista_Calif_Ejercicio=null;*/
@@ -81,7 +88,7 @@ public class PorcentNotasActivity extends AppCompatActivity {
 
         System.out.println("nameEst: " + nameEst);
 
-        if (!(lista_idEstudiante==null)) {
+        if (!(lista_idEstudiante == null)) {
             for (int i = 0; i < lista_idEstudiante.size(); i++) {
                 System.out.println("lista_idEstudiante : " + lista_idEstudiante.get(i));
             }
@@ -136,9 +143,9 @@ public class PorcentNotasActivity extends AppCompatActivity {
     }
 
     public void AddValuesToPIEENTRY() {
-        if (!(lista_idEstudiante==null) && !(lista_idEstudiante.size()==0) ) {
+        if (!(lista_idEstudiante == null) && !(lista_idEstudiante.size() == 0)) {
             for (int i = 0; i < lista_idEstudiante.size(); i++) {
-                entries.add(new BarEntry(lista_Calif_Ejercicio.get(i),i));
+                entries.add(new BarEntry(lista_Calif_Ejercicio.get(i), i));
             }
 
         } else {
@@ -173,7 +180,7 @@ public class PorcentNotasActivity extends AppCompatActivity {
 
     public void AddValuesToPieEntryLabels() {
 
-        if (!(lista_idEstudiante==null)&& !(lista_idEstudiante.size()==0)) {
+        if (!(lista_idEstudiante == null) && !(lista_idEstudiante.size() == 0)) {
             for (int i = 0; i < lista_idEstudiante.size(); i++) {
                 PieEntryLabels.add(lista_idEstudiante.get(i));
             }
@@ -198,9 +205,9 @@ public class PorcentNotasActivity extends AppCompatActivity {
     //**********************************************************************************************
     public void AddValuesToBARENTRY() {
 
-        if (!(lista_idEstudiante==null)&& !(lista_idEstudiante.size()==0)) {
+        if (!(lista_idEstudiante == null) && !(lista_idEstudiante.size() == 0)) {
             for (int i = 0; i < lista_idEstudiante.size(); i++) {
-                BARENTRY.add(new BarEntry(lista_Calif_Ejercicio.get(i),i));
+                BARENTRY.add(new BarEntry(lista_Calif_Ejercicio.get(i), i));
             }
 
         } else {
@@ -237,7 +244,7 @@ public class PorcentNotasActivity extends AppCompatActivity {
 
     public void AddValuesToBarEntryLabels() {
 
-        if (!(lista_idEstudiante==null)&& !(lista_idEstudiante.size()==0)) {
+        if (!(lista_idEstudiante == null) && !(lista_idEstudiante.size() == 0)) {
             for (int i = 0; i < lista_idEstudiante.size(); i++) {
                 BarEntryLabels.add(lista_idEstudiante.get(i));
             }

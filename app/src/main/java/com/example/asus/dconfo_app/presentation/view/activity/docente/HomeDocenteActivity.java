@@ -332,21 +332,22 @@ public class HomeDocenteActivity extends AppCompatActivity
             Log.i(TAG, "iddocente: " + iddocente);
             Log.i(TAG, "namedocente: " + namedocente);
 
-        }else if (id == R.id.nav_reportes) {
+        }
+        /*else if (id == R.id.nav_reportes) {
             Bundle parametros1 = new Bundle();
             parametros1.putInt("iddocente", iddocente);
             parametros1.putString("namedocente", namedocente);
             parametros1.putInt("idgrupo", idgrupo);
 
            // intentConsultarPorcentajes = new Intent(HomeDocenteActivity.this, PorcentNotasActivity.class);
-            intentShowReportes = new Intent(HomeDocenteActivity.this, ShowReportsDocActivity.class);
+            intentShowReportes = new Intent(HomeDocenteActivity.this, NotasActivity.class);
             intentShowReportes.putExtras(parametros1);
             startActivity(intentShowReportes);
             String TAG = "TAG";
             Log.i(TAG, "iddocente: " + iddocente);
             Log.i(TAG, "namedocente: " + namedocente);
 
-        }
+        }*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

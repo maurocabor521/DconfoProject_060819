@@ -101,7 +101,7 @@
             android:visible="false" />
         <item
             android:id="@+id/nav_asignardeber"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_menu_send"
             android:title="Asignar Deberes" />
     </group>
 
@@ -109,16 +109,16 @@
         <menu>
             <item
                 android:id="@+id/nav_consultar_notas"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Consultar Notas " />
+                android:icon="@drawable/icons8_editar_archivo_64"
+                android:title="Calificaciones|Reportes " />
             <!--item
                 android:id="@+id/nav_consultar_porcentajes"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Consultar Porcentajes " /-->
+                android:title="Consultar Porcentajes " /
             <item
                 android:id="@+id/nav_reportes"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Reportes" />
+                android:title="Reportes" />-->
         </menu>
     </item>
 
