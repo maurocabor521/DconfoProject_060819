@@ -22,29 +22,30 @@
             android:icon="@drawable/ic_conciencia_fonica"
             android:title="Conciencia Fónica" />
 
-        <item
-            android:id="@+id/nav_con_fonica_actividades"
-            android:icon="@drawable/ic_flecha_der_20dp"
-            android:title="Actividades"
-            android:visible="false" />
-        <item
-            android:id="@+id/nav_con_fonica_ejercicios"
-            android:icon="@drawable/ic_flecha_der_20dp"
-            android:title="Ejercicios"
-            android:gravity="center"
-            android:visible="false" />
-        <item
-            android:id="@+id/nav_con_fonica_asignar"
-            android:icon="@drawable/ic_flecha_der_20dp"
-            android:title="Asignar Actividad"
-            android:gravity="center"
-            android:visible="false" />
-        <item
-            android:id="@+id/nav_con_fonica_estudiantes"
-            android:icon="@drawable/ic_flecha_der_20dp"
-            android:title="Estudiantes"
-            android:gravity="center"
-            android:visible="false" />
+        <!-- <item
+             android:id="@+id/nav_con_fonica_actividades"
+             android:icon="@drawable/ic_flecha_der_20dp"
+             android:title="Actividades"
+             android:visible="false" />-->
+         <item
+             android:id="@+id/nav_con_fonica_asignar"
+             android:icon="@drawable/ic_flecha_der_20dp"
+             android:title="Asignar Actividad"
+             android:gravity="center"
+             android:visible="false" />
+         <item
+             android:id="@+id/nav_con_fonica_ejercicios"
+             android:icon="@drawable/ic_flecha_der_20dp"
+             android:title="Ejercicios"
+             android:gravity="center"
+             android:visible="false" />
+
+         <!--<item
+             android:id="@+id/nav_con_fonica_estudiantes"
+             android:icon="@drawable/ic_flecha_der_20dp"
+             android:title="Estudiantes"
+             android:gravity="center"
+             android:visible="false" />-->
         <item
             android:id="@+id/nav_con_lexica"
             android:icon="@drawable/ic_conciencia_lexica"

@@ -252,12 +252,13 @@ public class HomeDocenteActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_con_fonica) {
             // Handle the camera action
-            boolean b = !m.findItem(R.id.nav_con_fonica_actividades).isVisible();
+            //boolean b = !m.findItem(R.id.nav_con_fonica_actividades).isVisible();
+            boolean b = !m.findItem(R.id.nav_con_fonica_ejercicios).isVisible();
             //setting submenus visible state
-            m.findItem(R.id.nav_con_fonica_actividades).setVisible(b);
+           // m.findItem(R.id.nav_con_fonica_actividades).setVisible(b);
             m.findItem(R.id.nav_con_fonica_ejercicios).setVisible(b);
-            m.findItem(R.id.nav_con_fonica_asignar).setVisible(b);
-            m.findItem(R.id.nav_con_fonica_estudiantes).setVisible(b);
+           // m.findItem(R.id.nav_con_fonica_asignar).setVisible(b);
+            //m.findItem(R.id.nav_con_fonica_estudiantes).setVisible(b);
             return true;
         } else if (id == R.id.nav_con_lexica_ejercicios) {
             Bundle parametros = new Bundle();
@@ -284,7 +285,7 @@ public class HomeDocenteActivity extends AppCompatActivity
             Log.i(TAG, "iddocente: " + iddocente);
             Log.i(TAG, "namedocente: " + namedocente);
 
-        } else if (id == R.id.nav_con_fonica_asignar) {
+        }/* else if (id == R.id.nav_con_fonica_asignar) {
             Bundle parametros1 = new Bundle();
             parametros1.putInt("iddocente", iddocente);
             parametros1.putString("namedocente", namedocente);
@@ -297,7 +298,8 @@ public class HomeDocenteActivity extends AppCompatActivity
             Log.i(TAG, "iddocente: " + iddocente);
             Log.i(TAG, "namedocente: " + namedocente);
 
-        } else if (id == R.id.nav_con_silabica) {
+        } */
+        else if (id == R.id.nav_con_silabica) {
             // Handle the camera action
             boolean b = !m.findItem(R.id.nav_con_silabica_actividades).isVisible();
             //setting submenus visible state
