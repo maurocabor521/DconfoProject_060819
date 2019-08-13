@@ -1,11 +1,20 @@
 package com.example.asus.dconfo_app.presentation.view.fragment.Estudiante.silabico;
 
+import android.app.AlertDialog;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +25,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -26,12 +37,16 @@ import com.example.asus.dconfo_app.R;
 import com.example.asus.dconfo_app.domain.model.Imagen;
 import com.example.asus.dconfo_app.domain.model.VolleySingleton;
 import com.example.asus.dconfo_app.helpers.Globals;
+import com.example.asus.dconfo_app.presentation.view.activity.estudiante.HomeEstudianteActivity;
+import com.example.asus.dconfo_app.presentation.view.fragment.Estudiante.CasaHomeEstudianteFragment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -199,6 +214,10 @@ public class Tipo2silabicoEstudianteFragment extends Fragment
     //************************************************
     int nota = 0;
     ProgressDialog progreso;
+    String nameestudiante;
+    int idestudiante;
+    LinearLayout ll_intento;
+    MediaPlayer mediaPlayer;
     //************************************************
 
     StringRequest stringRequest;
@@ -289,6 +308,13 @@ public class Tipo2silabicoEstudianteFragment extends Fragment
 
         listaIdImagenes = new ArrayList<>();
 
+        //********************
+        nameestudiante = getArguments().getString("nameEstudiante");
+        idestudiante = getArguments().getInt("idEstudiante");
+        ll_intento = view.findViewById(R.id.ll_silabico2);
+        mediaPlayer = MediaPlayer.create(getContext(), R.raw.ping4);
+        //********************
+
         usuario = getArguments().getString("usuario");
 
         iddeber = getArguments().getInt("idesthasdeber");
@@ -376,8 +402,9 @@ public class Tipo2silabicoEstudianteFragment extends Fragment
     public void onClick(View v) {//f2
         switch (v.getId()) {
             case R.id.iv_estudiante_sil2_c1_f1:
-                if (cv_c1f1_isactived == false && cv_c1f1_desactivado == false) {
 
+                if (cv_c1f1_isactived == false && cv_c1f1_desactivado == false) {
+                    mediaPlayer.start();
                     cv_c1f1_isactived = true;
                     col_imgs = true;
                     contadorColImgs++;
@@ -400,6 +427,7 @@ public class Tipo2silabicoEstudianteFragment extends Fragment
             case R.id.iv_estudiante_sil2_c1_f2:
 
                 if (cv_c1f2_isactived == false && cv_c1f2_desactivado == false) {
+                    mediaPlayer.start();
                     cv_c1f2_isactived = true;
                     col_imgs = true;
                     contadorColImgs++;
@@ -421,7 +449,9 @@ public class Tipo2silabicoEstudianteFragment extends Fragment
                 System.out.println("c1f2 cv_c1f3_isactived: " + cv_c1f3_isactived);
                 break;
             case R.id.iv_estudiante_sil2_c1_f3:
+
                 if (cv_c1f3_isactived == false && cv_c1f3_desactivado == false) {
+                    mediaPlayer.start();
                     System.out.println("1 cv_c1f3_isactived: " + cv_c1f3_isactived);
                     cv_c1f3_isactived = true;
                     System.out.println("2 cv_c1f3_isactived: " + cv_c1f3_isactived);
@@ -440,6 +470,7 @@ public class Tipo2silabicoEstudianteFragment extends Fragment
             case R.id.iv_estudiante_sil2_c1_f4:
 
                 if (cv_c1f4_isactived == false && cv_c1f4_desactivado == false) {
+                    mediaPlayer.start();
                     cv_c1f4_isactived = true;
                     col_imgs = true;
                     contadorColImgs++;
@@ -460,7 +491,9 @@ public class Tipo2silabicoEstudianteFragment extends Fragment
                 System.out.println("c1f4 cv_c1f3_isactived: " + cv_c1f3_isactived);
                 break;
             case R.id.iv_estudiante_sil2_c2_f1:
+
                 if (cv_c2f1_isactived == false && cv_c2f1_desactivado == false) {
+                    mediaPlayer.start();
                     cv_c2f1_isactived = true;
                     col_letras = true;
                     contadorColLetras++;
@@ -478,7 +511,9 @@ public class Tipo2silabicoEstudianteFragment extends Fragment
                 }
                 break;
             case R.id.iv_estudiante_sil2_c2_f2:
+
                 if (cv_c2f2_isactived == false && cv_c2f2_desactivado == false) {
+                    mediaPlayer.start();
                     cv_c2f2_isactived = true;
                     col_letras = true;
                     contadorColLetras++;
@@ -495,7 +530,9 @@ public class Tipo2silabicoEstudianteFragment extends Fragment
                 System.out.println("c2f2 cv_c1f3_isactived: " + cv_c1f3_isactived);
                 break;
             case R.id.iv_estudiante_sil2_c2_f3:
+
                 if (cv_c2f3_isactived == false && cv_c2f3_desactivado == false) {
+                    mediaPlayer.start();
                     cv_c2f3_isactived = true;
                     col_letras = true;
                     contadorColLetras++;
@@ -511,7 +548,9 @@ public class Tipo2silabicoEstudianteFragment extends Fragment
                 }
                 break;
             case R.id.iv_estudiante_sil2_c2_f4:
+
                 if (cv_c2f4_isactived == false && cv_c2f4_desactivado == false) {
+                    mediaPlayer.start();
                     cv_c2f4_isactived = true;
                     col_letras = true;
                     contadorColLetras++;
@@ -1169,41 +1208,199 @@ public class Tipo2silabicoEstudianteFragment extends Fragment
 
             if (resPareja1 == true && resPareja2 == true && resPareja3 == true && resPareja4 == true) {
                 txt_resultado.setText(" ¡¡¡ BIEN HECHO 100% !!!");
+                nota = 5;
+                ws_cargarNota();
+                mostrarInforme();
             } else if (resPareja1 == true && resPareja2 == true && resPareja3 == true && resPareja4 == false) {
                 txt_resultado.setText(" ¡¡¡ 1 CASI 75% !!!");
+                nota = 4;
+                ws_cargarNota();
+                mostrarInforme();
             } else if (resPareja1 == true && resPareja2 == true && resPareja3 == false && resPareja4 == true) {
                 txt_resultado.setText(" ¡¡¡ 2 CASI 75% !!!");
+                nota = 4;
+                ws_cargarNota();
+                mostrarInforme();
             } else if (resPareja1 == true && resPareja2 == false && resPareja3 == true && resPareja4 == true) {
                 txt_resultado.setText(" ¡¡¡ 3 CASI 75% !!!");
+                nota = 4;
+                ws_cargarNota();
+                mostrarInforme();
             } else if (resPareja1 == false && resPareja2 == true && resPareja3 == true && resPareja4 == true) {
                 txt_resultado.setText(" ¡¡¡ 4 CASI 75% !!!");
+                nota = 4;
+                ws_cargarNota();
+                mostrarInforme();
             } else if (resPareja1 == false && resPareja2 == false && resPareja3 == true && resPareja4 == true) {
                 txt_resultado.setText(" ¡¡¡  50% !!!");
+                nota = 3;
+                ws_cargarNota();
+                mostrarInforme();
             } else if (resPareja1 == false && resPareja2 == true && resPareja3 == false && resPareja4 == true) {
                 txt_resultado.setText(" ¡¡¡  50% !!!");
+                nota = 3;
+                ws_cargarNota();
+                mostrarInforme();
             } else if (resPareja1 == false && resPareja2 == true && resPareja3 == true && resPareja4 == false) {
                 txt_resultado.setText(" ¡¡¡  50% !!!");
+                nota = 3;
+                ws_cargarNota();
+                mostrarInforme();
             } else if (resPareja1 == true && resPareja2 == true && resPareja3 == false && resPareja4 == false) {
                 txt_resultado.setText(" ¡¡¡  50% !!!");
+                nota = 3;
+                ws_cargarNota();
+                mostrarInforme();
             } else if (resPareja1 == true && resPareja2 == false && resPareja3 == false && resPareja4 == true) {
                 txt_resultado.setText(" ¡¡¡  50% !!!");
+                nota = 3;
+                ws_cargarNota();
+                mostrarInforme();
             } else if (resPareja1 == false && resPareja2 == true && resPareja3 == false && resPareja4 == true) {
                 txt_resultado.setText(" ¡¡¡  50% !!!");
-
+                nota = 3;
+                ws_cargarNota();
+                mostrarInforme();
             } else if (resPareja1 == false && resPareja2 == false && resPareja3 == false && resPareja4 == true) {
                 txt_resultado.setText(" ¡¡¡  25% !!!");
+                nota = 2;
+                ws_cargarNota();
             } else if (resPareja1 == false && resPareja2 == false && resPareja3 == true && resPareja4 == false) {
                 txt_resultado.setText(" ¡¡¡  25% !!!");
+                nota = 2;
+                ws_cargarNota();
+                mostrarInforme();
             } else if (resPareja1 == false && resPareja2 == true && resPareja3 == false && resPareja4 == false) {
                 txt_resultado.setText(" ¡¡¡  25% !!!");
+                nota = 2;
+                ws_cargarNota();
+                mostrarInforme();
             } else if (resPareja1 == true && resPareja2 == false && resPareja3 == false && resPareja4 == false) {
                 txt_resultado.setText(" ¡¡¡  25% !!!");
+                nota = 2;
+                ws_cargarNota();
+                mostrarInforme();
             } else if (resPareja1 == false && resPareja2 == false && resPareja3 == false && resPareja4 == false) {
                 txt_resultado.setText(" ¡¡¡  NO ACERTASTE NINGUNA !!!");
+                nota = 1;
+                ws_cargarNota();
+                mostrarInforme();
             }
 
         }
     }
+
+    //**********************************************************************************************
+
+    // ----------------------------------------------------------------------------------------------
+
+    private void ws_cargarNota() {
+        progreso = new ProgressDialog(getContext());
+        progreso.setMessage("Cargando...");
+        progreso.show();
+        String ip = Globals.url;
+        String url = "http://" + ip + "/proyecto_dconfo_v1/28wsJSONAsignarCalificacionDeberEstudiante.php";//p12.buena
+
+        stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {//recibe respuesta del webservice,cuando esta correcto
+                progreso.hide();
+                if (response.trim().equalsIgnoreCase("registra")) {
+
+                    Toast.makeText(getContext(), "Se ha cargado la nota con éxito", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getContext(), "No se ha cargado con éxito", Toast.LENGTH_LONG).show();
+                    System.out.println("el error: " + response.toString());
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getContext(), "No se ha podido conectar", Toast.LENGTH_LONG).show();
+                String ERROR = "error";
+                Log.d(ERROR, error.toString());
+                System.out.println("error" + error.toString());
+                progreso.hide();
+            }
+        }) {//enviar para metros a webservice, mediante post
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                String idesthasdeber = String.valueOf(iddeber);
+                String notadeber = String.valueOf(nota);
+                //String idejercicio = "";
+
+
+                Map<String, String> parametros = new HashMap<>();
+                parametros.put("idEstudiantehasDeber", idesthasdeber);
+                parametros.put("calificacionestudiante", notadeber);
+                System.out.println("Los parametros: " + parametros.toString());
+
+                return parametros;
+            }
+        };
+
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 2, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        VolleySingleton.getIntanciaVolley(getContext()).addToRequestQueue(stringRequest);//p21
+
+
+    }
+
+    // ----------------------------------------------------------------------------------------------
+    private void mostrarInforme() {
+        AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+        alertDialog.setTitle("Muy Bien !!!");
+        alertDialog.setMessage("Terminaste!!! ");
+        Drawable drawable = ll_intento.getResources().getDrawable(R.drawable.premio);
+        alertDialog.setIcon(drawable);
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        crearTranstition();
+                    }
+                });
+        alertDialog.show();
+    }
+    public void crearTranstition() {
+        Bundle bundle = new Bundle();
+        bundle.putInt("idEstudiante", idestudiante);
+        bundle.putString("nameEstudiante", nameestudiante);
+
+        System.out.println("idEstudiante: " + idestudiante);
+        System.out.println("nameEstudiante: " + nameestudiante);
+
+        CasaHomeEstudianteFragment homeEstudianteFragment = new CasaHomeEstudianteFragment();
+        homeEstudianteFragment.setArguments(bundle);
+
+        getFragmentManager().beginTransaction().replace(R.id.container_HomeEstudiante, homeEstudianteFragment)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                .addToBackStack(null).commit();
+    }
+
+    private void enviarNota() {
+
+        String dconfo = "dconfo";
+        String dconfo_mensaje = "Tiene un nuevo mensaje";
+
+        NotificationCompat.Builder mBuilder;
+        NotificationManager mNotifyMgr = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+
+        int icono = R.drawable.home;
+        Intent i = new Intent(getActivity(), HomeEstudianteActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(getActivity(), 0, i, 0);
+
+        mBuilder = new NotificationCompat.Builder(getContext())
+                .setContentIntent(pendingIntent)
+                .setSmallIcon(icono)
+                .setContentTitle("Ejercicio Realizado")
+                .setContentText("Tu nota es:" + nota)
+                .setVibrate(new long[]{100, 250, 100, 500})
+                .setAutoCancel(true);
+
+
+        mNotifyMgr.notify(1, mBuilder.build());
+    }
+    // ----------------------------------------------------------------------------------------------
 
     //**********************************************************************************************
 
