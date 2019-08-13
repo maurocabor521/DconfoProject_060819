@@ -18,6 +18,83 @@
         android:id="@+id/txt_resultado"
         android:layout_margin="20dp"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/ll_est_fon2_video"
+           >
+
+            <VideoView
+                android:id="@+id/vv_est_fon2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+
+            <!--Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ocultar video"
+                android:id="@+id/btn_est_fon2_ocultar"
+                android:theme="@style/RaisedButtonOrange"
+                android:layout_margin="20dp"/-->
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_est_fon2_intent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/editTextColorWhite">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="Ejercicio Fónico" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="Intento:" />
+
+                <TextView
+                    android:id="@+id/txt_est_fon2_intento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/orange"
+                    android:gravity="center_horizontal"
+                    android:text="3"
+                    android:textSize="25dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

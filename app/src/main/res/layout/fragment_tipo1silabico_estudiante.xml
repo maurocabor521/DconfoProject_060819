@@ -14,6 +14,52 @@
         android:gravity="center_horizontal"/>
 
     <LinearLayout
+        android:id="@+id/ll_est_sil1_intent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        android:background="@color/editTextColorWhite"
+        android:layout_marginBottom="50dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="Ejercicio Silábico" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="Intento:" />
+
+            <TextView
+                android:id="@+id/txt_est_sil1_intento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/orange"
+                android:gravity="center_horizontal"
+                android:text="3"
+                android:textSize="25dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
         android:id="@+id/ll_tipo_muestra_ejercicio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -149,12 +195,21 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:orientation="vertical">
-
-            <Button
-                android:id="@+id/btn_silabico_estudiante_Responde"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Responder" />
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btn_silabico_estudiante_Responde"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Responder"
+                    android:theme="@style/RaisedButtonOrange"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+
 
             <TextView
                 android:id="@+id/txt_silabico_estudiante_resultado"

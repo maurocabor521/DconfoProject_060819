@@ -1,11 +1,21 @@
 package com.example.asus.dconfo_app.presentation.view.fragment.Estudiante.silabico;
 
+import android.app.AlertDialog;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,10 +23,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -28,14 +41,18 @@ import com.example.asus.dconfo_app.domain.model.EjercicioG1;
 import com.example.asus.dconfo_app.domain.model.EjercicioG2;
 import com.example.asus.dconfo_app.domain.model.VolleySingleton;
 import com.example.asus.dconfo_app.helpers.Globals;
+import com.example.asus.dconfo_app.presentation.view.activity.estudiante.HomeEstudianteActivity;
+import com.example.asus.dconfo_app.presentation.view.fragment.Estudiante.CasaHomeEstudianteFragment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -94,6 +111,19 @@ public class Tipo1silabicoEstudianteFragment extends Fragment  implements Respon
 
     int campanada;
     String cantLexemas;
+    //**************************************************************
+    TextView txt_intento;
+    LinearLayout ll_intento;
+    int iddeber;
+    MediaPlayer mediaPlayer;
+    MediaPlayer mp1;
+    MediaPlayer mp2;
+    int nota;
+    ProgressDialog progreso;
+    int intento = 3;
+    String nameestudiante;
+    int idestudiante;
+    //**************************************************************
 
     private OnFragmentInteractionListener mListener;
 
@@ -136,8 +166,23 @@ public class Tipo1silabicoEstudianteFragment extends Fragment  implements Respon
 
         idEjercicio = getArguments().getInt("idejercicio");
         usuario = getArguments().getString("usuario");
+
+        nameestudiante = getArguments().getString("nameEstudiante");
+        idestudiante = getArguments().getInt("idEstudiante");
+
+        iddeber = getArguments().getInt("idesthasdeber");
+
         System.out.println("SIL TIPO1 idEjercicio  :" + idEjercicio);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("id Ejercicio: " + idEjercicio);
+
+        //*****************************************************************
+        ll_intento = view.findViewById(R.id.ll_est_sil1_intent);
+        ll_intento.setVisibility(View.VISIBLE);
+        txt_intento = view.findViewById(R.id.txt_est_sil1_intento);
+        mediaPlayer = MediaPlayer.create(getContext(), R.raw.ping4);
+        mp1 = MediaPlayer.create(getContext(), R.raw.exito);
+        mp2 = MediaPlayer.create(getContext(), R.raw.error);
+        //*****************************************************************
 
         iv_imagen = (CircleImageView) view.findViewById(R.id.iv_estudiante_silabico_t1);
         mSeekBarPitch = (SeekBar) view.findViewById(R.id.seek_bar_pitch_silabico_estudiante);
@@ -179,22 +224,23 @@ public class Tipo1silabicoEstudianteFragment extends Fragment  implements Respon
         btn_bell.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaPlayer.start();
                 campanada++;
                 if (campanada == 1) {
                     System.out.println("campanada :" + campanada);
-                    btn_b1.setBackground(getResources().getDrawable(R.drawable.selec));
+                    btn_b1.setBackground(getResources().getDrawable(R.drawable.bell_96px));
                 }
                 if (campanada == 2) {
                     System.out.println("campanada :" + campanada);
-                    btn_b2.setBackground(getResources().getDrawable(R.drawable.selec));
+                    btn_b2.setBackground(getResources().getDrawable(R.drawable.bell_96px));
                 }
                 if (campanada == 3) {
                     System.out.println("campanada :" + campanada);
-                    btn_b3.setBackground(getResources().getDrawable(R.drawable.selec));
+                    btn_b3.setBackground(getResources().getDrawable(R.drawable.bell_96px));
                 }
                 if (campanada == 4) {
                     System.out.println("campanada :" + campanada);
-                    btn_b4.setBackground(getResources().getDrawable(R.drawable.selec));
+                    btn_b4.setBackground(getResources().getDrawable(R.drawable.bell_96px));
                 }
             }
         });
@@ -210,11 +256,33 @@ public class Tipo1silabicoEstudianteFragment extends Fragment  implements Respon
         btn_responder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (campanada == Integer.parseInt(cantLexemas)) {
+               /* if (campanada == Integer.parseInt(cantLexemas)) {
                     txt_miRespuesta.setText("CORRECTO");
                 } else {
                     txt_miRespuesta.setText("INCORRECTO");
+                }*/
+                //**********************
+                if (campanada == Integer.parseInt(cantLexemas)) {
+                    txt_miRespuesta.setText("CORRECTO");
+                    mp1.start();
+                    nota = 5;
+                    cargarWebService_1();
+                    enviarNota();
+                    mostrarInforme();
+                } else {
+                    txt_miRespuesta.setText("INCORRECTO");
+                    mp2.start();
+                    mostrarError();
+                    intento--;
+                    txt_intento.setText(String.valueOf(intento));
+                    if (intento == 0) {
+                        nota = 1;
+
+                        cargarWebService_1();
+                        enviarNota();
+                    }
                 }
+                //**********************
             }
         });
         cargarWebService();
@@ -237,6 +305,145 @@ public class Tipo1silabicoEstudianteFragment extends Fragment  implements Respon
         mTTS.speak(textOracion, TextToSpeech.QUEUE_FLUSH, null);
         System.out.println("oración: " + textOracion);
     }
+    //----------------------------------------------------------------------------------------------
+
+    // ----------------------------------------------------------------------------------------------
+
+    private void cargarWebService_1() {
+        progreso = new ProgressDialog(getContext());
+        progreso.setMessage("Cargando...");
+        progreso.show();
+        String ip = Globals.url;
+        String url = "http://" + ip + "/proyecto_dconfo_v1/28wsJSONAsignarCalificacionDeberEstudiante.php";//p12.buena
+
+        stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {//recibe respuesta del webservice,cuando esta correcto
+                progreso.hide();
+                if (response.trim().equalsIgnoreCase("registra")) {
+
+                    Toast.makeText(getContext(), "Se ha cargado la nota con éxito", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getContext(), "No se ha cargado con éxito", Toast.LENGTH_LONG).show();
+                    System.out.println("el error: " + response.toString());
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getContext(), "No se ha podido conectar", Toast.LENGTH_LONG).show();
+                String ERROR = "error";
+                Log.d(ERROR, error.toString());
+                System.out.println("error" + error.toString());
+                progreso.hide();
+            }
+        }) {//enviar para metros a webservice, mediante post
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                String idesthasdeber = String.valueOf(iddeber);
+                String notadeber = String.valueOf(nota);
+                //String idejercicio = "";
+
+
+                Map<String, String> parametros = new HashMap<>();
+                parametros.put("idEstudiantehasDeber", idesthasdeber);
+                parametros.put("calificacionestudiante", notadeber);
+                System.out.println("Los parametros: " + parametros.toString());
+
+                return parametros;
+            }
+        };
+
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 2, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        VolleySingleton.getIntanciaVolley(getContext()).addToRequestQueue(stringRequest);//p21
+
+
+    }
+
+    // ----------------------------------------------------------------------------------------------
+
+    private void mostrarInforme() {
+        AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+        alertDialog.setTitle("Muy Bien !!!");
+        alertDialog.setMessage("Acertaste!!! ");
+        Drawable drawable = ll_intento.getResources().getDrawable(R.drawable.premio);
+        alertDialog.setIcon(drawable);
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        crearTranstition();
+                    }
+                });
+        alertDialog.show();
+    }
+
+    private void mostrarError() {
+        AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+        alertDialog.setTitle("Fallaste!!!");
+        if (intento != 0) {
+            alertDialog.setMessage("Intentalo de nuevo ");
+        } else {
+            alertDialog.setMessage("Lo siento !!! ");
+        }
+
+        Drawable drawable = ll_intento.getResources().getDrawable(R.drawable.rana_gif);
+
+        alertDialog.setIcon(drawable);
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        if (intento == 0) {
+                            crearTranstition();
+                        }
+                    }
+                });
+        alertDialog.show();
+    }
+
+    public void crearTranstition() {
+        Bundle bundle = new Bundle();
+        bundle.putInt("idEstudiante", idestudiante);
+        bundle.putString("nameEstudiante", nameestudiante);
+
+        System.out.println("idEstudiante: " + idestudiante);
+        System.out.println("nameEstudiante: " + nameestudiante);
+
+        CasaHomeEstudianteFragment homeEstudianteFragment = new CasaHomeEstudianteFragment();
+        homeEstudianteFragment.setArguments(bundle);
+
+        getFragmentManager().beginTransaction().replace(R.id.container_HomeEstudiante, homeEstudianteFragment)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                .addToBackStack(null).commit();
+    }
+
+    private void enviarNota() {
+
+        String dconfo = "dconfo";
+        String dconfo_mensaje = "Tiene un nuevo mensaje";
+
+        NotificationCompat.Builder mBuilder;
+        NotificationManager mNotifyMgr = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+
+        int icono = R.drawable.home;
+        Intent i = new Intent(getActivity(), HomeEstudianteActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(getActivity(), 0, i, 0);
+
+        mBuilder = new NotificationCompat.Builder(getContext())
+                .setContentIntent(pendingIntent)
+                .setSmallIcon(icono)
+                .setContentTitle("Ejercicio Realizado")
+                .setContentText("Tu nota es:" + nota)
+                .setVibrate(new long[]{100, 250, 100, 500})
+                .setAutoCancel(true);
+
+
+        mNotifyMgr.notify(1, mBuilder.build());
+    }
+    // ----------------------------------------------------------------------------------------------
+
+
     //----------------------------------------------------------------------------------------------
 
     public void cargarWebService() {
@@ -295,6 +502,7 @@ public class Tipo1silabicoEstudianteFragment extends Fragment  implements Respon
             }
             textOracion = ejercicioG2.getOracion();
             cantLexemas = ejercicioG2.getCantidadLexemas();
+            System.out.println("cantLexemas: " + cantLexemas);
 
             String url_lh = Globals.url;
 

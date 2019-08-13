@@ -206,6 +206,12 @@ public class Tipo2FonicoFragment extends Fragment
     MediaPlayer mp1;
     MediaPlayer mp2;
 
+    //***********************************************
+    LinearLayout ll_intento;
+    int intento = 3;
+    TextView txt_intento;
+    //***********************************************
+
     private OnFragmentInteractionListener mListener;
 
     public Tipo2FonicoFragment() {
@@ -244,6 +250,12 @@ public class Tipo2FonicoFragment extends Fragment
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_tipo2_fonico2, container, false);
+
+        //*****************************************************************
+        ll_intento = view.findViewById(R.id.ll_est_fon2_intent);
+        ll_intento.setVisibility(View.GONE);
+        txt_intento = view.findViewById(R.id.txt_est_fon2_intento);
+        //*****************************************************************
 
         mediaPlayer = MediaPlayer.create(getContext(), R.raw.ping4);
         mp1 = MediaPlayer.create(getContext(), R.raw.exito);

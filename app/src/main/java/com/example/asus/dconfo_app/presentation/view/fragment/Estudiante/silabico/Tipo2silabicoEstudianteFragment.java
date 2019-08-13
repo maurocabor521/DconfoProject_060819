@@ -1,5 +1,6 @@
 package com.example.asus.dconfo_app.presentation.view.fragment.Estudiante.silabico;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -194,6 +195,11 @@ public class Tipo2silabicoEstudianteFragment extends Fragment
     String urlImagen;
     int f = -1;
     int iddeber;
+
+    //************************************************
+    int nota = 0;
+    ProgressDialog progreso;
+    //************************************************
 
     StringRequest stringRequest;
     JsonObjectRequest jsonObjectRequest;
