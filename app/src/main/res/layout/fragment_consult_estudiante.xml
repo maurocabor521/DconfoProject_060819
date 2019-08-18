@@ -3,73 +3,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:layout_margin="@dimen/tsize_20dp"
+    android:orientation="vertical"
     tools:context=".presentation.view.fragment.administrador.ConsultEstudianteFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
-        android:id="@+id/linerLayout"
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="vertical"
-        android:layout_gravity="center_horizontal">
+        android:layout_height="wrap_content">
 
-        <TextView
+        <LinearLayout
+            android:id="@+id/linerLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingBottom="30dp"
-            android:text="@string/titulo_Consultar_estudiante"
-            android:textSize="30dp" />
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/edt_numero_codigo_CU"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="25dp"
-            android:hint="@string/titulo_ingrese_documento" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="30dp"
+                android:text="@string/titulo_Consultar_estudiante"
+                android:textSize="30dp" />
 
-        <TextView
-            android:id="@+id/txv_codigo_estudiante_CU"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="25dp" />
+            <EditText
+                android:id="@+id/edt_numero_codigo_CU"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="25dp"
+                android:hint="@string/titulo_ingrese_documento" />
 
-        <TextView
-            android:id="@+id/txv_nombre_estudiante_CU"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="25dp" />
+            <TextView
+                android:id="@+id/txv_codigo_estudiante_CU"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="25dp" />
 
-        <TextView
-            android:id="@+id/txv_acudiente_estudiante_CU"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="25dp" />
+            <TextView
+                android:id="@+id/txv_nombre_estudiante_CU"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="25dp" />
+
+            <TextView
+                android:id="@+id/txv_acudiente_estudiante_CU"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="25dp" />
+
+            <Button
+                android:id="@+id/btn_consultarEstudiante_CU"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:padding="@dimen/tsize_20dp"
+                android:text="@string/titulo_Consultar_estudiante"
+                android:textColor="@android:color/white"
+                android:theme="@style/RaisedButtonGreen" />
 
 
-    </LinearLayout>
+        </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+    </ScrollView>
 
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btn_consultarEstudiante_CU"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:text="@string/titulo_Consultar_estudiante"
-        android:textColor="@android:color/white"
-        android:theme="@style/RaisedButtonGreen"
-        android:padding="@dimen/tsize_20dp"/>
 
     <!--ImageView
         android:id="@+id/imageId"
