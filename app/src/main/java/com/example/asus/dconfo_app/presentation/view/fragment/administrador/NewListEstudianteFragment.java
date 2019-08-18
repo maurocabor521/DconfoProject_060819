@@ -628,26 +628,30 @@ public class NewListEstudianteFragment extends Fragment implements View.OnClickL
         Estudiante estudiante = new Estudiante();
 
         for (int i = 0; i < Arraycadena.length; i++) {
-            if (Arraycadena[i] == caracter) {
-                // cuantasVeces[j]++;
-                // Arraycadena[j] = ' ';
+           if (Arraycadena[i] == caracter) {
+            //if (Arraycadena[i] == caracter ||(Arraycadena[i] != caracter && (Arraycadena[i+1]<=Arraycadena[i]) )) {
 
-                listElem.add(elem);//comentado//////////////////////////////////////////////////
 
-                System.out.println(" el elemento_ : " + elem);
-                System.out.println(" Arraycadena.length : " + Arraycadena.length);
-                elem = "";
-                cont++;
-                System.out.println("cont : " + cont);
-                if (cont == 5 && (Arraycadena[i] < Arraycadena.length)) {
-                    elem = elem + Arraycadena[i];
-                    System.out.println("elem**********: " + elem);
-                }
-                //if (cont == 5 && (Arraycadena[i] == (Arraycadena.length - 1))) {
-                if (cont == 5 && (Arraycadena[i] >= (Arraycadena.length ))) {
-                    listElem.add(elem);
-                    System.out.println("listElem.add(elem): " + elem);
-                }
+                    // cuantasVeces[j]++;
+                    // Arraycadena[j] = ' ';
+
+                    listElem.add(elem);//comentado//////////////////////////////////////////////////
+
+                    System.out.println(" el elemento_ : " + elem);
+                    System.out.println(" Arraycadena.length : " + Arraycadena.length);
+                    elem = "";
+                    cont++;
+                    System.out.println("cont : " + cont);
+                    if (cont == 5 && (Arraycadena[i] < Arraycadena.length)) {
+                        elem = elem + Arraycadena[i];
+                        System.out.println("elem**********: " + elem);
+                    }
+                    //if (cont == 5 && (Arraycadena[i] == (Arraycadena.length - 1))) {
+                    if (cont == 5 && (Arraycadena[i] >= (Arraycadena.length))) {
+                        listElem.add(elem);
+                        System.out.println("listElem.add(elem): " + elem);
+                    }
+
             } else {
                 elem = elem + Arraycadena[i];
                 System.out.println("elem**********: " + elem);

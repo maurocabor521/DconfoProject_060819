@@ -10,13 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfa32beb-0043-4a99-8961-b7a206ece080" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/domain/model/Estudiante.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/domain/model/Estudiante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/helpers/Globals.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/helpers/Globals.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/administrador/ListNewDocenteFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/administrador/ListNewDocenteFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/administrador/NewListEstudianteFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/administrador/NewListEstudianteFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_list_new_docente.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_list_new_docente.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,6 +42,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="csv" value="1" />
           <entry key="gradle" value="5" />
           <entry key="java" value="80" />
           <entry key="pro" value="1" />
@@ -58,6 +54,7 @@
         <counts>
           <entry key="Groovy" value="5" />
           <entry key="JAVA" value="80" />
+          <entry key="PLAIN_TEXT" value="1" />
           <entry key="ProGuard File" value="1" />
           <entry key="Properties" value="2" />
           <entry key="XML" value="33" />
@@ -66,7 +63,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="111" />
-          <entry key="java" value="4975" />
+          <entry key="java" value="5011" />
           <entry key="txt" value="13" />
           <entry key="xml" value="759" />
         </counts>
@@ -74,7 +71,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="111" />
-          <entry key="JAVA" value="4975" />
+          <entry key="JAVA" value="5011" />
           <entry key="PLAIN_TEXT" value="13" />
           <entry key="XML" value="759" />
         </counts>
@@ -127,8 +124,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/administrador/NewListEstudianteFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="771">
-              <caret line="671" column="25" lean-forward="true" selection-start-line="671" selection-start-column="25" selection-end-line="671" selection-end-column="25" />
+            <state relative-caret-position="125">
+              <caret line="630" column="11" selection-start-line="630" selection-start-column="11" selection-end-line="630" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -276,7 +273,7 @@
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="device.picker.selection" value="192.168.43.101:5555" />
-    <property name="last_opened_file_path" value="D:/Users/USUARIO/Desktop/xml/1/ListaEstudiantes3_.csv" />
+    <property name="last_opened_file_path" value="D:/Users/USUARIO/Desktop/xml/1/ListaEstudiantes4.csv" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="sync.plugin.last.upgrade.timestamp" value="1566135072237" />
   </component>
@@ -468,7 +465,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566142652433</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="commit 060819">
+      <created>1566167485542</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1566167485542</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView">
@@ -543,13 +547,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="commit 060819" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/Estudiante/Tipo2EstudianteFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1615">
-          <caret line="135" column="52" selection-start-line="135" selection-start-column="52" selection-end-line="135" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_tipo2_estudiante.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
@@ -901,10 +898,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://D:/Users/USUARIO/Documents/AndroidStudio/DeviceExplorer/genymotion-custom_phone-192.168.43.101_5555/storage/emulated/0/Download/ListaEstudiantes4.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/administrador/NewListEstudianteFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="771">
-          <caret line="671" column="25" lean-forward="true" selection-start-line="671" selection-start-column="25" selection-end-line="671" selection-end-column="25" />
+        <state relative-caret-position="125">
+          <caret line="630" column="11" selection-start-line="630" selection-start-column="11" selection-end-line="630" selection-end-column="11" />
         </state>
       </provider>
     </entry>
