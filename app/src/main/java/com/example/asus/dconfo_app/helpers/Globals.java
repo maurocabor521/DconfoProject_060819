@@ -10,6 +10,7 @@ public class Globals {
     //public static String url = "elproyectodconfo.000webhostapp.com";// 000 web host. funciona!!!
 
     //nueva dirección webhost 000
+    //
     public static String url = "dconfo2019.000webhostapp.com";// 000 web host. funciona!!!
 
     //**********************************************************************************************
