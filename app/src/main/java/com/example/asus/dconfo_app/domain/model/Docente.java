@@ -3,6 +3,8 @@ package com.example.asus.dconfo_app.domain.model;
 public class Docente {
     private Integer iddocente;
     private String namedocente;
+    private String emaildocente;
+    private String passdocente;
     private Integer dnidocente;
 
     public Integer getIddocente() {
@@ -27,5 +29,21 @@ public class Docente {
 
     public void setDnidocente(Integer dnidocente) {
         this.dnidocente = dnidocente;
+    }
+
+    public String getEmaildocente() {
+        return emaildocente;
+    }
+
+    public void setEmaildocente(String emaildocente) {
+        this.emaildocente = emaildocente;
+    }
+
+    public String getPassdocente() {
+        return passdocente;
+    }
+
+    public void setPassdocente(String passdocente) {
+        this.passdocente = passdocente;
     }
 }

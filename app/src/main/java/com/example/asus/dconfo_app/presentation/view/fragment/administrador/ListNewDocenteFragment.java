@@ -3,24 +3,55 @@ package com.example.asus.dconfo_app.presentation.view.fragment.administrador;
 import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.example.asus.dconfo_app.R;
+import com.example.asus.dconfo_app.domain.model.Docente;
+import com.example.asus.dconfo_app.domain.model.Estudiante;
+import com.example.asus.dconfo_app.domain.model.VolleySingleton;
+import com.example.asus.dconfo_app.helpers.Globals;
+import com.vincent.filepicker.Constant;
+import com.vincent.filepicker.activity.NormalFilePickActivity;
+import com.vincent.filepicker.filter.entity.NormalFile;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,7 +61,7 @@ import java.io.File;
  * Use the {@link ListNewDocenteFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ListNewDocenteFragment extends Fragment {
+public class ListNewDocenteFragment extends Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -40,7 +71,12 @@ public class ListNewDocenteFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private Button btn_New_L_Estudiantes;
+    private static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 0;
+    private static final int COD_SELECCIONA = 10;
+    private static final String Downloads = "Downloads";
+
+    private Button btn_New_L_Docentes;
+
     private Button btn_agregar_Estudiantes;
     private ListView lv_lista_est;
     private TextView txt_mensaje;
@@ -103,8 +139,9 @@ public class ListNewDocenteFragment extends Fragment {
         View view=inflater.inflate(R.layout.fragment_list_new_docente, container, false);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.new_list_docente);
 
-        btn_New_L_Estudiantes = (Button) view.findViewById(R.id.btn_New_listDocentes);
-        btn_agregar_Estudiantes = (Button) view.findViewById(R.id.btn_agregar_listDocentes);
+        btn_New_L_Docentes = (Button) view.findViewById(R.id.btn_New_listDocentes);
+        btn_New_L_Docentes.setOnClickListener(this);
+       // btn_agregar_Estudiantes = (Button) view.findViewById(R.id.btn_agregar_listDocentes);
 
       /*  btn_New_L_Estudiantes.setOnClickListener(this);
         btn_agregar_Estudiantes.setOnClickListener(this);*/
@@ -153,6 +190,35 @@ public class ListNewDocenteFragment extends Fragment {
         return view;
     }
 
+    //*******************************************************************************************************
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_READ_CONTACTS: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+
+                } else {
+
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                }
+                return;
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request
+        }
+    }
+
+
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
@@ -176,6 +242,528 @@ public class ListNewDocenteFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case (R.id.btn_New_listDocentes):
+
+                if (sdDisponible) {
+
+                    try {
+                        ruta_sd = Environment.getExternalStorageDirectory();
+
+                        //File f = new File(ruta_sd.getAbsolutePath(), "ficherosd.txt");
+                        // File f = new File(ruta_sd.getAbsolutePath(), "archivo_csv.csv");
+                      /*  f = new File(Environment.getExternalStorageDirectory().getPath()
+                                + "/Download/", "archivo_csv_1.csv");   */
+
+                        f = new File(ruta_sd.getPath()
+                                + "/Download/", "archivo_csv_1.csv");
+                        //File f1 = fileEscogido;
+                        mostrarDialogOpciones();
+                        File f1 = fileEscogido;
+                        BufferedReader fin =
+                                new BufferedReader(
+                                        new InputStreamReader(
+                                                new FileInputStream(f)));
+
+                        String texto;
+                        int cont = 0;
+                        if ((texto = fin.readLine()) != null) {
+                            cont++;
+                            System.out.println("f: " + f.getAbsolutePath());
+                            System.out.println("fin.readline: " + texto);
+                            // txt_mensaje.setText(texto);
+                            Toast.makeText(getContext(), "f: " + f.getAbsolutePath(), Toast.LENGTH_LONG).show();
+                        }
+                        while ((texto = fin.readLine()) == ";") {
+                            cont++;
+                        }
+
+                        System.out.println("cont: " + cont);
+                        String nextLine;
+                        while ((nextLine = fin.readLine()) != null) {
+                            // nextLine[] is an array of values from the line
+                            //System.out.println(nextLine[0] + nextLine[1] + "etc...");
+                            // nextLines.add(nextLine);
+                            System.out.println("next lines: " + nextLine);
+                        }
+                        fin.close();
+                        // mostrarDialogOpciones();
+
+                    } catch (Exception ex) {
+                        Log.e("Ficheros", "Error al leer fichero desde tarjeta SD");
+                        txt_mensaje.setText("No hay fichero, sdDisponible: " + sdDisponible + " ," +
+                                "sdAccesoEscritura: " + sdAccesoEscritura + " ,RUTA: " + ruta_sd.getAbsolutePath());
+                    }
+
+                }
+                break;
+            case (R.id.btn_New_Write_listEstudiantes):
+                if (sdAccesoEscritura && sdDisponible) {
+                    try {
+                        File ruta_sd = Environment.getExternalStorageDirectory();
+
+                        //f = new File(ruta_sd.getAbsolutePath(), "archivo_csv.csv");
+                        f = new File(ruta_sd.getPath()
+                                + "/Download/", "archivo_csv_1.csv");
+
+                     /*   f = new File(Environment.getExternalStorageDirectory().getPath()
+                                + "/Download/", "archivo_csv_1.csv");*/
+
+                        //+ "/Download/", "archivo_csv.csv");
+
+                        Toast.makeText(getContext(), "f_write: " + f.getAbsolutePath(), Toast.LENGTH_LONG).show();
+
+                        OutputStreamWriter fout =
+                                new OutputStreamWriter(
+                                        new FileOutputStream(f));
+                        OutputStreamWriter fout1 =
+                                new OutputStreamWriter(
+                                        new FileOutputStream(f));
+
+                        fout.write("juan;");
+                        fout.write("caballo;");
+                        fout.write("4445555");
+                        fout.write("\n");
+                        fout.write("laura;");
+                        fout.write("lopeza;");
+                        fout.write("990000");
+                        fout.write("\n");
+                        fout.write("andres;");
+                        fout.write("cabal;");
+                        fout.write("7788888");
+                        fout.write("\n");
+                        fout.write("lina;");
+                        fout.write("juarez;");
+                        fout.write("556666");
+                        fout.write("\n");
+                        fout.write("camilo;");
+                        fout.write("marco;");
+                        fout.write("33444444");
+                        fout.write("\n");
+                        fout.write("juana;");
+                        fout.write("loca;");
+                        fout.write("1111222");
+                        fout.write("\n");
+                        fout.write("gloria;");
+                        fout.write("diaz;");
+                        fout.write("77755533");
+                        fout.write("\n");
+                        fout.write("hugo;");
+                        fout.write("bueno;");
+                        fout.write("88884433");
+
+
+                        String tex = fout.toString();
+                        int cont = 0;
+                        if (tex == "\n") {
+                            cont++;
+                        }
+                        // Toast.makeText(getContext(),"cont: "+cont,Toast.LENGTH_LONG).show();
+
+                        fout.close();
+                        fout1.close();
+
+                        String cadena_f = f.toString();
+                        //leerArchivo(cadena_f);
+
+                    } catch (Exception ex) {
+                        Log.e("Ficheros", "Error al escribir fichero en la tarjeta SD");
+                        txt_mensaje.setText("Error al escribir fichero en la tarjeta SD, f :" + f);
+                    }
+                }
+
+                break;
+        }//sw
+    }//onclick
+
+    private void mostrarDialogOpciones() {
+        //final boolean flag1=false;
+        final CharSequence[] opciones = {"Mis archivos", "Elegir de Galeria", "Cancelar"};
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("Elige una Opción");
+        builder.setItems(opciones, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if (opciones[i].equals("Mis archivos")) {
+                    //irCarpeta();
+                    //insertContact("andres", "correo@correo");
+                    Toast.makeText(getContext(), "RUTA" + Environment.getExternalStorageDirectory().getPath(), Toast.LENGTH_LONG).show();
+                    Log.e("RUTAS", "RUTA" + Environment.getExternalStorageDirectory().getPath());
+
+                    /*Intent intent = new Intent(Intent.ACTION_GET_CONTENT);//sirve
+                    //Intent intent = new Intent(Intent.DownloadManager.ACTION_VIEW_DOWNLOADS);//prueba
+                    //intent.setType("file/*");
+                    startActivityForResult(intent, 0);*/
+
+                    Intent intent4 = new Intent(getActivity(), NormalFilePickActivity.class);
+                    intent4.putExtra(Constant.MAX_NUMBER, 9);
+                    intent4.putExtra(NormalFilePickActivity.SUFFIX, new String[] {"csv", "xls"});
+                    startActivityForResult(intent4, 0);
+
+
+
+            /*       Intent chooser = new Intent(Intent.ACTION_GET_CONTENT);
+                    Uri uri = Uri.parse(Environment.getDownloadCacheDirectory().getPath().toString());
+                    chooser.addCategory(Intent.CATEGORY_OPENABLE);*/
+                    // chooser.setDataAndType(uri, "*/*");
+                /*    startActivity(chooser);
+                    try {
+                        //startActivityForResult(chooser, 0);
+                        startActivityForResult(Intent.createChooser(chooser, "Select a File to Upload"), 0);
+
+                    } catch (android.content.ActivityNotFoundException ex) {
+                        Toast.makeText(getContext(), "Please install a File Manager.", Toast.LENGTH_SHORT).show();
+                    }*/
+
+
+                    // openFolder();//sirve
+
+                } else {
+                    if (opciones[i].equals("Elegir de Galeria")) {
+                        Intent intent = new Intent(Intent.ACTION_PICK,
+                                MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                        intent.setType("image/");
+                        startActivityForResult(intent.createChooser(intent, "Seleccione"), COD_SELECCIONA);
+                        //cont = 1;
+                    } else {
+                        dialogInterface.dismiss();
+                    }
+                }
+            }
+        });
+
+        builder.show();
+        //return flag1;
+    }
+
+    public void openFolder() {
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        Uri uri = Uri.parse(Environment.getExternalStorageDirectory().getPath()
+                + File.separator + "myFolder" + File.separator);
+        intent.setDataAndType(uri, "text/csv");
+        startActivity(Intent.createChooser(intent, "Open folder"));
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        switch (requestCode) {
+            case 0: {
+                //what you want to do
+                //file = new File(uri.getPath());
+                ArrayList<NormalFile> list = data.getParcelableArrayListExtra(Constant.RESULT_PICK_FILE);
+
+                if(list.size() == 1) {
+
+                    NormalFile file = list.get(0);
+
+                    fileEscogido = new File(file.getPath());
+                    BufferedReader fin1 =
+                            null;
+                    try {
+                        fin1 = new BufferedReader(
+                                new InputStreamReader(
+                                        new FileInputStream(fileEscogido)));
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+
+                    String texto;
+                    int cont = 0;
+                    try {
+                        if ((texto = fin1.readLine()) != null) {
+                            cont++;
+                            System.out.println("fileEscogido: " + fileEscogido.getAbsolutePath());
+                            System.out.println("fin1.readline: " + texto);
+                            //txt_mensaje.setText(texto);
+                            System.out.println("fileEscogido.toString(): " + fileEscogido.toString());
+                            cuentaSaltos(fileEscogido.toString());
+
+                            if (texto.equals("\n")) {
+                                cont++;
+                            }
+                            //Toast.makeText(getContext(), "fileEscogido: " + fileEscogido.getAbsolutePath(), Toast.LENGTH_LONG).show();
+                            //Toast.makeText(getContext(), "cont_: " + cont, Toast.LENGTH_LONG).show();
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+              /*  System.out.println("File_Escogido : "+fileEscogido);
+                Log.i("info","uri.data"+uri);
+                Toast.makeText(getContext(), "File Escogido : uri -> "+fileEscogido, Toast.LENGTH_LONG).show();*/
+
+            }
+        }
+    }
+
+    public void cuentaSaltos(String archivo) {
+        //String cadena = "MetroBikeShare_2016_Q3_trips.csv";
+        String cadena = archivo;
+        System.out.println("C.S. cadena: " + cadena);
+        String elemento = null;
+        boolean seguir = true;
+        Scanner entrada = null;
+        ArrayList<String> lisEstudiantes = new ArrayList<>();
+        int cont = 0;
+
+        try {
+            entrada = new Scanner(new File(cadena));
+            System.out.println("C.S. entrada: " + entrada);
+        } catch (FileNotFoundException fnE) {
+            System.out.println(fnE.getMessage());
+            seguir = false;
+        }
+        if (seguir) {
+            //entrada.nextLine();
+            while (entrada.hasNext()) {
+                //cont++;
+                elemento = entrada.next();
+                System.out.println("C.S. elemento: " + elemento);
+                lisEstudiantes.add(elemento);
+                //Toast.makeText(getContext(), "elemento: " + elemento, Toast.LENGTH_LONG).show();
+
+                //  String palabra = "sql";
+                //  String texto = "lenguaje sql";
+                boolean resultado = elemento.contains(";");
+                //ContarCharUnicos(elemento);
+
+                //cuentcv(elemento);
+                if (resultado) {
+                    //  System.out.println("palabra encontrada");
+                    cont++;
+                } else {
+                    System.out.println("palabra no encontrada");
+                }
+            }
+            // cuentcv("caballo;;;");
+            cuentcv(lisEstudiantes);
+            ArrayAdapter<String> adapterListView = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_multiple_choice, lisEstudiantes);
+            lv_lista_est.setAdapter(adapterListView);
+            System.out.println("ListEstudiantes: " + lisEstudiantes);
+            //System.out.println("cont: " + cont);
+            //Toast.makeText(getContext(), "cont: " + cont, Toast.LENGTH_LONG).show();
+        }
+
+    }//pruebas
+
+    public void cuentcv(ArrayList<String> cadena) {
+
+        char[] Arraycadena;
+        //char caracter;
+        char caracter = ';';
+        char caracter1 = ',';
+
+
+        //Arraycadena = cadena.toCharArray();
+        String[] arrayCadena = cadena.toArray(new String[cadena.size()]);
+
+
+       /* char[] caracteres = new char[cadena.length()];
+        int[] cuantasVeces = new int[cadena.length()];     */
+        char[] caracteres = new char[cadena.size()];
+        int[] cuantasVeces = new int[cadena.size()];
+        int cont = 0;
+
+        //  for(int i =0;i<Arraycadena.length;i++){
+        //caracter = Arraycadena[i];
+        // caracteres[i] = caracter;
+        // for(int j = i; j < Arraycadena.length; j++)   {
+
+        // for (int j = 0; j < Arraycadena.length; j++) {
+
+        String elem = "";
+        ArrayList<String> listElem = new ArrayList<>();
+        ArrayList<String> listCad = new ArrayList<>();
+        for (int j = 0; j < cadena.size(); j++) {
+            // if (Arraycadena[j] == caracter) {
+            char[] array1;
+            array1 = cadena.get(j).toCharArray();
+            // if (cadena.get(j).contentEquals(";") ) {
+            for (int i = 0; i < array1.length; i++) {
+                if (array1[i] == caracter) {
+                    // cuantasVeces[j]++;
+                    // Arraycadena[j] = ' ';
+                    listElem.add(elem);
+                    elem = "";
+                    cont++;
+                } else {
+
+                    elem = elem + array1[i];
+
+
+                }
+            }//2do for
+            listCad.add(cadena.get(j));
+            separaElem(cadena.get(j));
+            //System.out.println(" cadena : " + j + ": j : " + cadena.get(j));
+
+
+            // if(caracteres[j] != ' ')
+            // System.out.println(caracteres[i] +" "+cuantasVeces[i]+" veces.");
+        }//1er for
+
+       /* System.out.println(" cadena lst : " + listCad.get(0));
+        System.out.println(" elem : " + elem);
+        System.out.println(" lstelems : " + listElem);
+        System.out.println(Arrays.toString(arrayCadena));
+        System.out.println(cont + " veces");*/
+
+
+    }
+
+    public void separaElem(String cadena) {
+        char[] Arraycadena;
+        Arraycadena = cadena.toCharArray();
+        //String[] cadenaArray = new String[] {cadena};
+        String[] cadenaArray = cadena.split("");
+        char caracter = ';';
+        int cont = 0;
+        String elem = "";
+        String elem1 = "";
+        ArrayList<String> listElem = new ArrayList<>();
+        ArrayList<String> listCad = new ArrayList<>();
+        Estudiante estudiante = new Estudiante();
+
+        for (int i = 0; i < Arraycadena.length; i++) {
+            if (Arraycadena[i] == caracter) {
+                //if (Arraycadena[i] == caracter ||(Arraycadena[i] != caracter && (Arraycadena[i+1]<=Arraycadena[i]) )) {
+
+
+                // cuantasVeces[j]++;
+                // Arraycadena[j] = ' ';
+
+                listElem.add(elem);//comentado//////////////////////////////////////////////////
+
+                System.out.println(" el elemento_ : " + elem);
+                System.out.println(" Arraycadena.length : " + Arraycadena.length);
+                elem = "";
+                cont++;
+                System.out.println("cont : " + cont);
+                if (cont == 4 && (Arraycadena[i] < Arraycadena.length)) {
+                    elem = elem + Arraycadena[i];
+                    System.out.println("elem**********: " + elem);
+                }
+                //if (cont == 5 && (Arraycadena[i] == (Arraycadena.length - 1))) {
+                if (cont == 4 && (Arraycadena[i] >= (Arraycadena.length))) {
+                    listElem.add(elem);
+                    System.out.println("listElem.add(elem): " + elem);
+                }
+
+            } else {
+                elem = elem + Arraycadena[i];
+                System.out.println("elem**********: " + elem);
+                if (cont == 4 && (Arraycadena[i] >= (Arraycadena.length ))) {
+                    listElem.add(elem);
+                    System.out.println("listElem.add(elem)**: " + elem);
+                }
+               /* if (Arraycadena[i] != caracter) {
+                    listElem.add(elem);
+                }*/
+                //listElem.add(elem);
+                /*if (cont == 3 && Arraycadena[i] < Arraycadena.length) {
+                    elem = elem + Arraycadena[i];
+                }*/
+                //estudiante.setIdestudiante(Arraycadena[i]);
+            }
+
+        }//2do for
+
+
+        System.out.println(" separa elems : " + listElem);
+        creaEstudiante(listElem);//***********************************************
+        System.out.println(" elemento1 : " + elem);
+        System.out.println(" contador : " + cont);
+    }
+
+    public Docente creaEstudiante(ArrayList<String> lista) {
+       /* Estudiante estudiante = null;
+        estudiante = new Estudiante();*/
+        Docente docente=new Docente();
+        if (lista.size()<=3){
+           /* estudiante.setIdestudiante(Integer.parseInt(lista.get(0).toString()));
+            estudiante.setNameestudiante(lista.get(1).toString());
+            estudiante.setDniestudiante(Integer.parseInt(lista.get(2).toString()));*/
+        }else {
+            docente.setIddocente(Integer.parseInt(lista.get(0).toString()));
+            docente.setNamedocente(lista.get(1).toString());
+            docente.setDnidocente(Integer.parseInt(lista.get(2).toString()));
+            docente.setEmaildocente(lista.get(3).toString());
+            docente.setPassdocente(lista.get(4).toString());
+        }
+       /* System.out.println("estudiante id: " + estudiante.getIdestudiante());
+        System.out.println("estudiante nombre: " + estudiante.getNameestudiante());
+        System.out.println("lista enviada: " + lista.size());*/
+        cargarWebServiceEstudiante(docente);
+        return docente;
+    }
+
+    private void cargarWebServiceEstudiante(final Docente docente) {
+
+        progreso.setMessage("Cargando...");
+        progreso.show();
+        String url_lh= Globals.url;
+        String url =
+                // "http://192.168.0.13/proyecto_dconfo/wsJSONCrearEstudiante.php?";
+                "http://"+url_lh+"/proyecto_dconfo_v1/32wsJSONCrearDocente.php?";
+        stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {//recibe respuesta del webservice,cuando esta correcto
+                progreso.hide();
+                if (response.trim().equalsIgnoreCase("registra")) {
+
+                    Toast.makeText(getContext(), "Se ha cargado con éxito", Toast.LENGTH_LONG).show();
+                    System.out.println("cargado con éxito Docente en BBDD: " );
+                } else {
+                    System.out.println("carga fallida Docente en BBDD: " );
+                    Log.i("ERROR","RESPONSE"+response.toString());
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getContext(), "No se ha podido conectar", Toast.LENGTH_LONG).show();
+                progreso.hide();
+            }
+        }) {//enviar para metros a webservice, mediante post
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                String iddocente = docente.getIddocente().toString();
+                String namedocente = docente.getNamedocente().toString();
+                String dnidocente = docente.getDnidocente().toString();
+                String email_docente = docente.getEmaildocente().toString();
+                String passwork_docente = String.valueOf(123);
+                //String passestudiante = estudiante.getPasswordestudiante();
+                //String passestudiante = String.valueOf(123);
+
+
+
+                Map<String, String> parametros = new HashMap<>();
+                parametros.put("iddocente", iddocente);
+                parametros.put("namedocente", namedocente);
+                parametros.put("dnidocente", dnidocente);
+                parametros.put("email_docente", email_docente);
+                parametros.put("passwork_docente", passwork_docente);
+                //parametros.put("passwork_estudiante", passestudiante);
+
+
+                return parametros;
+            }
+        };
+
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 2, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        VolleySingleton.getIntanciaVolley(getContext()).addToRequestQueue(stringRequest);//p21
+
+    }//cargarwebserviceestudiante
+
+
+
+
+    //*******************************************************************************************************
+
+
 
     /**
      * This interface must be implemented by activities that contain this
