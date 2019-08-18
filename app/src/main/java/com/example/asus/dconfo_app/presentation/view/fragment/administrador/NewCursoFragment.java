@@ -117,14 +117,21 @@ public class NewCursoFragment extends Fragment {
         return view;
     }
 
+    //método que permite volver al padre conservando las variables
+   /* @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }*/
+
     private void cargarWebService() {
         progreso = new ProgressDialog(getContext());
         progreso.setMessage("Cargando...");
         progreso.show();
-        String url_lh=Globals.url;
+        String url_lh = Globals.url;
         String url =
                 //"http://192.168.0.13/proyecto_dconfo/wsJSONCrearCurso.php?";
-                "http://"+url_lh+"/proyecto_dconfo_v1/wsJSONCrearCurso.php?";
+                "http://" + url_lh + "/proyecto_dconfo_v1/wsJSONCrearCurso.php?";
         stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {//recibe respuesta del webservice,cuando esta correcto
@@ -137,7 +144,7 @@ public class NewCursoFragment extends Fragment {
                     Toast.makeText(getContext(), "Se ha cargado con éxito", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(getContext(), "No se ha cargado con éxito", Toast.LENGTH_LONG).show();
-                    Log.i("ERROR","RESPONSE"+response.toString());
+                    Log.i("ERROR", "RESPONSE" + response.toString());
                 }
             }
         }, new Response.ErrorListener() {

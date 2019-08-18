@@ -35,6 +35,13 @@ public class Home_NewCursoActivity extends AppCompatActivity
         cargarBottombar();
     }
 
+    //método que permite volver al padre conservando las variables
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
+
     public void showToolbar(String tittle, boolean upButton) {
         android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar_ejercicio);
         setSupportActionBar(toolbar);
@@ -80,7 +87,7 @@ public class Home_NewCursoActivity extends AppCompatActivity
                         break;
                     case R.id.bott_estudiantes:
                         Toast.makeText(getApplicationContext(), "estudiantes", Toast.LENGTH_LONG).show();
-                       newEstudianteFragment = new NewEstudianteFragment();
+                        newEstudianteFragment = new NewEstudianteFragment();
                         getSupportFragmentManager().beginTransaction().replace(R.id.container_Admincurso, newEstudianteFragment)
                                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                                 .addToBackStack(null).commit();

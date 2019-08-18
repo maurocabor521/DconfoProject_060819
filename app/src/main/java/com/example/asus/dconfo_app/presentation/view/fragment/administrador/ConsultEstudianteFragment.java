@@ -131,7 +131,8 @@ public class ConsultEstudianteFragment extends Fragment implements Response.List
         //String url = "http://192.168.0.13/" +
         String url = "http://"+url_lh+"/" +
                 //"ejemploBDRemota/wsJSONConsultarUsuario.php?documento=" + campoDocumento.getText().toString();
-                "proyecto_dconfo_v1/wsJSONConsultarEstudiante.php?documento="+cod;
+                //"proyecto_dconfo_v1/wsJSONConsultarEstudiante.php?documento="+cod;
+                "proyecto_dconfo_v1/31wsJSONConsultarEstudiante_id_admin.php?idestudiante="+cod;
         Toast.makeText(getContext(), "Mensaje: " + cod, Toast.LENGTH_SHORT).show();
         // String url = ip+"ejemploBDRemota/wsJSONConsultarUsuarioImagen.php?documento=" + campoDocumento.getText().toString();
 

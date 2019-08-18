@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/tsize_20dp"
     tools:context=".presentation.view.fragment.administrador.ConsultEstudianteFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -11,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal">
 
         <TextView
             android:layout_width="match_parent"
@@ -64,15 +67,17 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:text="@string/titulo_Consultar_estudiante"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:theme="@style/RaisedButtonGreen"
+        android:padding="@dimen/tsize_20dp"/>
 
-    <ImageView
+    <!--ImageView
         android:id="@+id/imageId"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_below="@+id/linerLayout"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_no_foto_80dp" />
+        android:src="@drawable/ic_no_foto_80dp" /-->
 
 
-</RelativeLayout>
+</LinearLayout>

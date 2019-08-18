@@ -16,6 +16,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.example.asus.dconfo_app.R;
+import com.example.asus.dconfo_app.domain.model.Administrador;
 import com.example.asus.dconfo_app.domain.model.Estudiante;
 import com.example.asus.dconfo_app.domain.model.VolleySingleton;
 import com.example.asus.dconfo_app.helpers.Globals;
@@ -47,6 +48,8 @@ public class LoginAdministradorActivity extends AppCompatActivity implements Res
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+
         edt_email = (EditText) findViewById(R.id.edt_login_doc_email);
         edt_pass = (EditText) findViewById(R.id.edt_login_doc_password);
         btn_ingresar = (Button) findViewById(R.id.btn_Login_Docente);
@@ -99,7 +102,7 @@ public class LoginAdministradorActivity extends AppCompatActivity implements Res
         //Toast.makeText(getApplicationContext(), "Mensaje: " + response.toString(), Toast.LENGTH_SHORT).show();
 
 
-        JSONArray json = response.optJSONArray("estudiante");
+        JSONArray json = response.optJSONArray("adminstrador");
         JSONObject jsonObject = null;
 
         try {
@@ -112,16 +115,16 @@ public class LoginAdministradorActivity extends AppCompatActivity implements Res
     /*    if (usuario == "administrador") {
 
         } else if (usuario == "docente") {*/
-        Estudiante estudiante = new Estudiante();
-        estudiante.setIdestudiante(jsonObject.optInt("idestudiante"));
-        estudiante.setNameestudiante(jsonObject.optString("nameestudiante"));
+        Administrador administrador=new Administrador();
+        administrador.setIdAdminstrador(jsonObject.optInt("idAdminstrador"));
+        administrador.setNameAdminstrador(jsonObject.optString("nameAdminstrador"));
 
         Intent intent = new Intent(LoginAdministradorActivity.this, Home_AdminActivity.class);
-        int idestudiante = estudiante.getIdestudiante();
-        String nameestudiante = estudiante.getNameestudiante();
-        intent.putExtra("idestudiante", idestudiante);
-        intent.putExtra("nameestudiante", nameestudiante);
+        int idadministrador = administrador.getIdAdminstrador();
+        String nameadministrador = administrador.getNameAdminstrador();
+        intent.putExtra("idadministrador", idadministrador);
+        intent.putExtra("nameadministrador", nameadministrador);
         startActivity(intent);
-        Toast.makeText(getApplicationContext(), "ESTUDIANTE: " + estudiante.getIdestudiante().toString(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Administrador: " + administrador.getIdAdminstrador().toString(), Toast.LENGTH_SHORT).show();
     }
 }

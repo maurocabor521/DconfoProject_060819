@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.asus.dconfo_app.presentation.view.activity.administrador.Home_AdminActivity;
+import com.example.asus.dconfo_app.presentation.view.activity.administrador.LoginAdministradorActivity;
 import com.example.asus.dconfo_app.presentation.view.activity.docente.LoginDocenteActivity;
 import com.example.asus.dconfo_app.presentation.view.activity.estudiante.HomeEstudianteActivity;
 import com.example.asus.dconfo_app.presentation.view.activity.estudiante.LoginEstudianteActivity;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         btn_admin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intentAdministrador=new Intent(MainActivity.this,Home_AdminActivity.class);
+                intentAdministrador=new Intent(MainActivity.this, LoginAdministradorActivity.class);
                 Bundle parametros = new Bundle();
                 String usuarioa="administrador";
                 intentAdministrador.putExtra("usuario", usuarioa);
