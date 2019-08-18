@@ -7,6 +7,8 @@ public class Estudiante {
     private String nameestudiante;
     private Integer dniestudiante;
     private String acudienteestudiante;
+    private String emailestudiante;
+    private String passwordestudiante;
 
     public Integer getIdestudiante() {
         return idestudiante;
@@ -38,5 +40,21 @@ public class Estudiante {
 
     public void setAcudienteestudiante(String acudienteestudiante) {
         this.acudienteestudiante = acudienteestudiante;
+    }
+
+    public String getEmailestudiante() {
+        return emailestudiante;
+    }
+
+    public void setEmailestudiante(String emailestudiante) {
+        this.emailestudiante = emailestudiante;
+    }
+
+    public String getPasswordestudiante() {
+        return passwordestudiante;
+    }
+
+    public void setPasswordestudiante(String passwordestudiante) {
+        this.passwordestudiante = passwordestudiante;
     }
 }

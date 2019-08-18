@@ -478,7 +478,9 @@ public class NewListEstudianteFragment extends Fragment implements View.OnClickL
                             System.out.println("fileEscogido: " + fileEscogido.getAbsolutePath());
                             System.out.println("fin1.readline: " + texto);
                             //txt_mensaje.setText(texto);
+                            System.out.println("fileEscogido.toString(): " + fileEscogido.toString());
                             cuentaSaltos(fileEscogido.toString());
+
                             if (texto.equals("\n")) {
                                 cont++;
                             }
@@ -500,6 +502,7 @@ public class NewListEstudianteFragment extends Fragment implements View.OnClickL
     public void cuentaSaltos(String archivo) {
         //String cadena = "MetroBikeShare_2016_Q3_trips.csv";
         String cadena = archivo;
+        System.out.println("C.S. cadena: " + cadena);
         String elemento = null;
         boolean seguir = true;
         Scanner entrada = null;
@@ -508,6 +511,7 @@ public class NewListEstudianteFragment extends Fragment implements View.OnClickL
 
         try {
             entrada = new Scanner(new File(cadena));
+            System.out.println("C.S. entrada: " + entrada);
         } catch (FileNotFoundException fnE) {
             System.out.println(fnE.getMessage());
             seguir = false;
@@ -517,6 +521,7 @@ public class NewListEstudianteFragment extends Fragment implements View.OnClickL
             while (entrada.hasNext()) {
                 //cont++;
                 elemento = entrada.next();
+                System.out.println("C.S. elemento: " + elemento);
                 lisEstudiantes.add(elemento);
                 //Toast.makeText(getContext(), "elemento: " + elemento, Toast.LENGTH_LONG).show();
 
@@ -600,7 +605,7 @@ public class NewListEstudianteFragment extends Fragment implements View.OnClickL
             // System.out.println(caracteres[i] +" "+cuantasVeces[i]+" veces.");
         }//1er for
 
-      /*  System.out.println(" cadena lst : " + listCad.get(0));
+       /* System.out.println(" cadena lst : " + listCad.get(0));
         System.out.println(" elem : " + elem);
         System.out.println(" lstelems : " + listElem);
         System.out.println(Arrays.toString(arrayCadena));
@@ -626,21 +631,34 @@ public class NewListEstudianteFragment extends Fragment implements View.OnClickL
             if (Arraycadena[i] == caracter) {
                 // cuantasVeces[j]++;
                 // Arraycadena[j] = ' ';
-                listElem.add(elem);
 
+                listElem.add(elem);//comentado//////////////////////////////////////////////////
 
-
-                System.out.println(" el elemento : " + elem);
+                System.out.println(" el elemento_ : " + elem);
+                System.out.println(" Arraycadena.length : " + Arraycadena.length);
                 elem = "";
                 cont++;
-                if (cont == 3 && (Arraycadena[i] < Arraycadena.length)) {
+                System.out.println("cont : " + cont);
+                if (cont == 5 && (Arraycadena[i] < Arraycadena.length)) {
                     elem = elem + Arraycadena[i];
+                    System.out.println("elem**********: " + elem);
                 }
-                if (cont == 3 && (Arraycadena[i] == (Arraycadena.length - 1))) {
+                //if (cont == 5 && (Arraycadena[i] == (Arraycadena.length - 1))) {
+                if (cont == 5 && (Arraycadena[i] >= (Arraycadena.length ))) {
                     listElem.add(elem);
+                    System.out.println("listElem.add(elem): " + elem);
                 }
             } else {
                 elem = elem + Arraycadena[i];
+                System.out.println("elem**********: " + elem);
+                if (cont == 5 && (Arraycadena[i] >= (Arraycadena.length ))) {
+                    listElem.add(elem);
+                    System.out.println("listElem.add(elem)**: " + elem);
+                }
+               /* if (Arraycadena[i] != caracter) {
+                    listElem.add(elem);
+                }*/
+                //listElem.add(elem);
                 /*if (cont == 3 && Arraycadena[i] < Arraycadena.length) {
                     elem = elem + Arraycadena[i];
                 }*/
@@ -659,9 +677,18 @@ public class NewListEstudianteFragment extends Fragment implements View.OnClickL
     public Estudiante creaEstudiante(ArrayList<String> lista) {
         Estudiante estudiante = null;
         estudiante = new Estudiante();
-        estudiante.setIdestudiante(Integer.parseInt(lista.get(0).toString()));
-        estudiante.setNameestudiante(lista.get(1).toString());
-        estudiante.setDniestudiante(Integer.parseInt(lista.get(2).toString()));
+        if (lista.size()<=3){
+            estudiante.setIdestudiante(Integer.parseInt(lista.get(0).toString()));
+            estudiante.setNameestudiante(lista.get(1).toString());
+            estudiante.setDniestudiante(Integer.parseInt(lista.get(2).toString()));
+        }else {
+            estudiante.setIdestudiante(Integer.parseInt(lista.get(0).toString()));
+            estudiante.setNameestudiante(lista.get(1).toString());
+            estudiante.setDniestudiante(Integer.parseInt(lista.get(2).toString()));
+            estudiante.setAcudienteestudiante(lista.get(3).toString());
+            estudiante.setEmailestudiante(lista.get(4).toString());
+            estudiante.setPasswordestudiante(lista.get(5).toString());
+        }
         System.out.println("estudiante id: " + estudiante.getIdestudiante());
         System.out.println("estudiante nombre: " + estudiante.getNameestudiante());
         System.out.println("lista enviada: " + lista.size());
@@ -702,7 +729,10 @@ public class NewListEstudianteFragment extends Fragment implements View.OnClickL
                 String idestudiante = estudiante.getIdestudiante().toString();
                 String nameestudiante = estudiante.getNameestudiante().toString();
                 String dniestudiante = estudiante.getDniestudiante().toString();
-                String acudienteestudiante = "N/A";
+                String acudienteestudiante = estudiante.getAcudienteestudiante().toString();
+                String emailestudiante = estudiante.getEmailestudiante();
+                //String passestudiante = estudiante.getPasswordestudiante();
+                String passestudiante = String.valueOf(123);
 
 
 
@@ -711,6 +741,8 @@ public class NewListEstudianteFragment extends Fragment implements View.OnClickL
                 parametros.put("nameestudiante", nameestudiante);
                 parametros.put("dniestudiante", dniestudiante);
                 parametros.put("acudienteestudiante", acudienteestudiante);
+                parametros.put("emailAcudienteestudiante", emailestudiante);
+                parametros.put("passwork_estudiante", passestudiante);
 
 
                 return parametros;

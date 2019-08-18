@@ -1,15 +1,26 @@
 package com.example.asus.dconfo_app.presentation.view.fragment.administrador;
 
+import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
 
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.example.asus.dconfo_app.R;
+
+import java.io.File;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,6 +39,25 @@ public class ListNewDocenteFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private Button btn_New_L_Estudiantes;
+    private Button btn_agregar_Estudiantes;
+    private ListView lv_lista_est;
+    private TextView txt_mensaje;
+    private Context context;
+    boolean sdDisponible = false;
+    boolean sdAccesoEscritura = false;
+    File ruta_sd;
+    File f;
+    File fileEscogido;
+
+    ProgressDialog progreso;
+
+    //******** CONEXIÓN CON WEBSERVICE
+    //RequestQueue request;
+    JsonObjectRequest jsonObjectRequest;
+
+    StringRequest stringRequest;
 
     public static ListNewDocenteFragment getInstance() {
         return new ListNewDocenteFragment();
@@ -72,6 +102,54 @@ public class ListNewDocenteFragment extends Fragment {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_list_new_docente, container, false);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.new_list_docente);
+
+        btn_New_L_Estudiantes = (Button) view.findViewById(R.id.btn_New_listDocentes);
+        btn_agregar_Estudiantes = (Button) view.findViewById(R.id.btn_agregar_listDocentes);
+
+      /*  btn_New_L_Estudiantes.setOnClickListener(this);
+        btn_agregar_Estudiantes.setOnClickListener(this);*/
+
+        lv_lista_est = (ListView) view.findViewById(R.id.lv_NewListaDocentes);
+        txt_mensaje = (TextView) view.findViewById(R.id.txt_mensaje_list_doc);
+        context = getContext();
+
+        progreso = new ProgressDialog(this.getContext());
+
+        // Código que me comprueba si existe SD y si puedo escribir o no
+        String estado = Environment.getExternalStorageState();
+
+        if (estado.equals(Environment.MEDIA_MOUNTED)) {
+            sdDisponible = true;
+            sdAccesoEscritura = true;
+        } else if (estado.equals(Environment.MEDIA_MOUNTED_READ_ONLY)) {
+            sdDisponible = true;
+            sdAccesoEscritura = false;
+        } else {
+            sdDisponible = false;
+            sdAccesoEscritura = false;
+        }
+
+        //permison en tiempo de ejecución
+        if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+
+            // Show an expanation to the user *asynchronously* -- don't block
+            // this thread waiting for the user's response! After the user
+            // sees the explanation, try again to request the permission.
+
+        } else {
+
+            // No explanation needed, we can request the permission.
+
+            ActivityCompat.requestPermissions(getActivity(),
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0
+            );
+
+            // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+            // app-defined int constant. The callback method gets the
+            // result of the request.
+        }
+
         return view;
     }
 
