@@ -70,7 +70,9 @@ public class Tipo2EstudianteFragment extends Fragment {
     private Button btn_b3;
     private Button btn_b4;
     private Button btn_b5;
+    private Button btn_b6;
     private Button btn_responder;
+    private Button btn_corregir;
 
     private int idEjercicio;
     private int cantLexemas;
@@ -164,6 +166,7 @@ public class Tipo2EstudianteFragment extends Fragment {
         mButtonSpeak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btn_responder.setEnabled(true);
                 speak();
             }
         });
@@ -176,6 +179,7 @@ public class Tipo2EstudianteFragment extends Fragment {
                 btn_b1.setBackground(null);
                 btn_b1.setBackground(getResources().getDrawable(R.drawable.selec));
                 cantLexemas++;
+                txt_resultado.setText(String.valueOf(cantLexemas));
                 System.out.println("cant lex c1: " + cantLexemas);
             }
         });
@@ -188,6 +192,7 @@ public class Tipo2EstudianteFragment extends Fragment {
                 btn_b2.setBackground(null);
                 btn_b2.setBackground(getResources().getDrawable(R.drawable.selec));
                 cantLexemas++;
+                txt_resultado.setText(String.valueOf(cantLexemas));
                 System.out.println("cant lex c2: " + cantLexemas);
             }
         });
@@ -200,6 +205,7 @@ public class Tipo2EstudianteFragment extends Fragment {
                 btn_b3.setBackground(null);
                 btn_b3.setBackground(getResources().getDrawable(R.drawable.selec));
                 cantLexemas++;
+                txt_resultado.setText(String.valueOf(cantLexemas));
                 System.out.println("cant lex c3: " + cantLexemas);
             }
         });
@@ -212,6 +218,7 @@ public class Tipo2EstudianteFragment extends Fragment {
                 btn_b4.setBackground(null);
                 btn_b4.setBackground(getResources().getDrawable(R.drawable.selec));
                 cantLexemas++;
+                txt_resultado.setText(String.valueOf(cantLexemas));
                 System.out.println("cant lex c4: " + cantLexemas);
             }
         });
@@ -224,7 +231,36 @@ public class Tipo2EstudianteFragment extends Fragment {
                 btn_b5.setBackground(null);
                 btn_b5.setBackground(getResources().getDrawable(R.drawable.selec));
                 cantLexemas++;
+                txt_resultado.setText(String.valueOf(cantLexemas));
                 System.out.println("cant lex c5: " + cantLexemas);
+            }
+        });
+        btn_b6 = (Button) view.findViewById(R.id.btn_estudiante_tipo2_casilla6);
+        btn_b6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mediaPlayer.start();
+                btn_b6.setBackground(null);
+                btn_b6.setBackground(getResources().getDrawable(R.drawable.selec));
+                cantLexemas++;
+                txt_resultado.setText(String.valueOf(cantLexemas));
+                System.out.println("cant lex c6: " + cantLexemas);
+            }
+        });
+
+        btn_corregir = (Button) view.findViewById(R.id.btn_estudiante_restart_lex2);
+        btn_corregir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cantLexemas=0;
+                txt_resultado.setText(String.valueOf(cantLexemas));
+                mediaPlayer.start();
+                btn_b1.setBackground(getResources().getDrawable(R.drawable.bell_96px));
+                btn_b2.setBackground(getResources().getDrawable(R.drawable.bell_96px));
+                btn_b3.setBackground(getResources().getDrawable(R.drawable.bell_96px));
+                btn_b4.setBackground(getResources().getDrawable(R.drawable.bell_96px));
+                btn_b5.setBackground(getResources().getDrawable(R.drawable.bell_96px));
+                btn_b6.setBackground(getResources().getDrawable(R.drawable.bell_96px));
             }
         });
 
@@ -248,6 +284,7 @@ public class Tipo2EstudianteFragment extends Fragment {
         });
 
         btn_responder = (Button) view.findViewById(R.id.btn_estudiante_tipo2_enviar_respuesta);
+        btn_responder.setEnabled(false);
         btn_responder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -272,11 +309,12 @@ public class Tipo2EstudianteFragment extends Fragment {
                         cargarWebService_1();
                         enviarNota();
                     }
-                    btn_b1.setBackground(getResources().getDrawable(R.drawable.ic_square_30dp));
-                    btn_b2.setBackground(getResources().getDrawable(R.drawable.ic_square_30dp));
-                    btn_b3.setBackground(getResources().getDrawable(R.drawable.ic_square_30dp));
-                    btn_b4.setBackground(getResources().getDrawable(R.drawable.ic_square_30dp));
-                    btn_b5.setBackground(getResources().getDrawable(R.drawable.ic_square_30dp));
+                    btn_b1.setBackground(getResources().getDrawable(R.drawable.bell_96px));
+                    btn_b2.setBackground(getResources().getDrawable(R.drawable.bell_96px));
+                    btn_b3.setBackground(getResources().getDrawable(R.drawable.bell_96px));
+                    btn_b4.setBackground(getResources().getDrawable(R.drawable.bell_96px));
+                    btn_b5.setBackground(getResources().getDrawable(R.drawable.bell_96px));
+                    btn_b6.setBackground(getResources().getDrawable(R.drawable.bell_96px));
                 }
             }
         });
