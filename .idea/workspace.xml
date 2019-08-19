@@ -6,13 +6,21 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfa32beb-0043-4a99-8961-b7a206ece080" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/restart_64px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/restart_64px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/restart_64px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/restart_64px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/restart_64px.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/domain/model/Docente.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/domain/model/Docente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/administrador/ListNewDocenteFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/administrador/ListNewDocenteFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/helpers/Globals.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/helpers/Globals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/Estudiante/Tipo1EstudianteFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/Estudiante/Tipo1EstudianteFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_home_estudiante.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_home_estudiante.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_tipo1_estudiante.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_tipo1_estudiante.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,50 +39,50 @@
     <session id="-584883596">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="19" />
+          <entry key="project.closed" value="20" />
           <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.1" value="2" />
-          <entry key="project.open.time.2" value="7" />
+          <entry key="project.open.time.2" value="8" />
           <entry key="project.open.time.3" value="5" />
           <entry key="project.open.time.4" value="2" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="20" />
+          <entry key="project.opened" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="csv" value="1" />
           <entry key="gradle" value="5" />
-          <entry key="java" value="81" />
+          <entry key="java" value="85" />
           <entry key="pro" value="1" />
           <entry key="properties" value="2" />
-          <entry key="xml" value="33" />
+          <entry key="xml" value="36" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="5" />
-          <entry key="JAVA" value="81" />
+          <entry key="JAVA" value="85" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="ProGuard File" value="1" />
           <entry key="Properties" value="2" />
-          <entry key="XML" value="33" />
+          <entry key="XML" value="36" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="111" />
-          <entry key="java" value="5250" />
+          <entry key="java" value="5384" />
           <entry key="txt" value="13" />
-          <entry key="xml" value="759" />
+          <entry key="xml" value="1012" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="111" />
-          <entry key="JAVA" value="5250" />
+          <entry key="JAVA" value="5384" />
           <entry key="PLAIN_TEXT" value="13" />
-          <entry key="XML" value="759" />
+          <entry key="XML" value="1012" />
         </counts>
       </usages-collector>
     </session>
@@ -82,82 +90,82 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/activity/administrador/Home_AdminActivity.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/Estudiante/Tipo1EstudianteFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="146" column="39" selection-start-line="146" selection-start-column="39" selection-end-line="146" selection-end-column="39" />
+            <state relative-caret-position="2609">
+              <caret line="369" column="69" selection-start-line="369" selection-start-column="69" selection-end-line="369" selection-end-column="69" />
+              <folding>
+                <element signature="e#10158#10424#0" expanded="true" />
+                <element signature="e#10423#10424#0" expanded="true" />
+                <element signature="e#10530#10796#0" expanded="true" />
+                <element signature="e#10795#10796#0" expanded="true" />
+                <element signature="e#10902#11168#0" expanded="true" />
+                <element signature="e#11167#11168#0" expanded="true" />
+                <element signature="e#11274#11540#0" expanded="true" />
+                <element signature="e#11539#11540#0" expanded="true" />
+                <element signature="e#11646#11912#0" expanded="true" />
+                <element signature="e#11911#11912#0" expanded="true" />
+                <element signature="e#12018#12284#0" expanded="true" />
+                <element signature="e#12283#12284#0" expanded="true" />
+                <element signature="e#12401#12667#0" expanded="true" />
+                <element signature="e#12666#12667#0" expanded="true" />
+                <element signature="e#13497#14362#0" expanded="true" />
+                <element signature="e#14361#14362#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/administrador/ListNewDocenteFragment.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_tipo1_estudiante.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="736" column="62" selection-start-line="736" selection-start-column="62" selection-end-line="736" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/domain/model/Docente.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+            <state relative-caret-position="237">
+              <caret line="245" column="68" lean-forward="true" selection-start-line="245" selection-start-column="68" selection-end-line="245" selection-end-column="68" />
               <folding>
-                <element signature="e#773#774#0" expanded="true" />
-                <element signature="e#808#809#0" expanded="true" />
-                <element signature="e#864#865#0" expanded="true" />
-                <element signature="e#912#913#0" expanded="true" />
-                <element signature="e#950#951#0" expanded="true" />
-                <element signature="e#984#985#0" expanded="true" />
-                <element signature="e#1038#1039#0" expanded="true" />
-                <element signature="e#1084#1085#0" expanded="true" />
+                <element signature="e#3202#3220#0" expanded="true" />
+                <element signature="e#3944#3962#0" expanded="true" />
+                <element signature="e#7563#7581#0" expanded="true" />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_list_new_docente.xml">
           <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
-              <folding>
-                <element signature="e#821#840#0" expanded="true" />
-                <element signature="e#1691#1710#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="339">
+              <caret line="57" column="62" selection-start-line="57" selection-start-column="62" selection-end-line="57" selection-end-column="62" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/administrador/NewListEstudianteFragment.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/Estudiante/CasaHomeEstudianteFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2065">
-              <caret line="249" selection-start-line="249" selection-end-line="249" />
+            <state relative-caret-position="465">
+              <caret line="313" column="20" selection-start-line="313" selection-start-column="20" selection-end-line="313" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_new_list_estudiante.xml">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/activity/estudiante/HomeEstudianteActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="62" column="65" selection-start-line="62" selection-start-column="65" selection-end-line="62" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home_estudiante.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="91">
+              <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+            </state>
+          </provider>
           <provider editor-type-id="android-designer2" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="44" selection-start-line="44" selection-end-line="48" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/activity/administrador/Home_NewCursoActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-            </state>
-          </provider>
         </entry>
       </file>
     </leaf>
@@ -210,11 +218,15 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/administrador/ConsultEstudianteFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_consult_estudiante.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_list_new_docente.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/helpers/Globals.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/domain/model/Estudiante.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/administrador/NewListEstudianteFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/domain/model/Docente.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/administrador/ListNewDocenteFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/helpers/Globals.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/Estudiante/Tipo1EstudianteFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_home_estudiante.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_tipo1_estudiante.xml" />
       </list>
     </option>
   </component>
@@ -230,26 +242,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="DconfoProy_08" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DconfoProy_08" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="DconfoProy_08" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DconfoProy_08" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="DconfoProy_08" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -273,20 +265,85 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="dconfo_app" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DconfoProy_08" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="dconfo_app" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="activity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DconfoProy_08" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="dconfo_app" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="activity" type="462c0819:PsiDirectoryNode" />
+              <item name="estudiante" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DconfoProy_08" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="dconfo_app" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="fragment" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DconfoProy_08" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="dconfo_app" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="fragment" type="462c0819:PsiDirectoryNode" />
+              <item name="Estudiante" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DconfoProy_08" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="DconfoProy_08" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DconfoProy_08" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="DconfoProy_08" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DconfoProy_08" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="DconfoProy_08" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="algorithm" value="Scalr" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="device.picker.selection" value="192.168.43.101:5555" />
-    <property name="last_opened_file_path" value="D:/Users/USUARIO/Desktop/xml/1/ListaDocentes.csv" />
+    <property name="format" value="PNG" />
+    <property name="lastFolderRoot" value="D:/Users/USUARIO/Pictures/Saved Pictures/Proyecto d_confo/restart_64px.png" />
+    <property name="last_opened_file_path" value="D:/Users/USUARIO/Pictures/Saved Pictures/Proyecto d_confo/restart_64px.png" />
+    <property name="method" value="Automatic" />
+    <property name="resolutions" value="XHDPI&#10;XXXHDPI&#10;XXHDPI&#10;MDPI&#10;HDPI" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="sourceResolution" value="XHDPI" />
     <property name="sync.plugin.last.upgrade.timestamp" value="1566135072237" />
   </component>
   <component name="RecentsManager">
@@ -491,7 +548,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566168461565</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="commit 060819">
+      <created>1566170901432</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1566170901432</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView">
@@ -529,7 +593,7 @@
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="right" id="Preview" order="4" sideWeight="0.49914822" weight="0.2624811" />
+      <window_info active="true" anchor="right" id="Preview" order="4" sideWeight="0.49914822" visible="true" weight="0.28290468" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
     </layout>
     <layout-to-restore>
@@ -566,45 +630,13 @@
     <option name="LAST_COMMIT_MESSAGE" value="commit 060819" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_tipo2_estudiante.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="57" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/Estudiante/fonico/Tipo2FonicoFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16320">
-          <caret line="1008" selection-start-line="1008" selection-end-line="1009" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="49" column="47" selection-start-line="49" selection-start-column="47" selection-end-line="49" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/helpers/ThreadExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_tipo2silabico_estudiante.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3043">
           <caret line="179" column="44" selection-start-line="179" selection-start-column="44" selection-end-line="179" selection-end-column="44" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/Estudiante/silabico/Tipo2silabicoEstudianteFragment.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -641,20 +673,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/Estudiante/CasaHomeEstudianteFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2584">
-          <caret line="195" selection-start-line="195" selection-end-line="195" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_tipo1silabico_estudiante.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3536">
           <caret line="208" selection-start-line="208" selection-end-line="208" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/docente/fonico/Tipo1FonicoFragment.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -678,16 +703,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login_main.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
       <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/activity/docente/LoginDocenteActivity.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -733,12 +758,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_home__admin.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28">
           <caret line="18" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/activity/docente/actividades/ActividadDocenteActivity.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -748,28 +773,28 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_actividad_docente.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="50" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_home__admin.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home__admin.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/activity/docente/AsignarDeberDocenteActivity.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -828,42 +853,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_consult_estudiante.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="70" selection-start-line="70" selection-end-line="70" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/activity_home__admin_drawer.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/activity/administrador/Home_AdminActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="146" column="39" selection-start-line="146" selection-start-column="39" selection-end-line="146" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/activity/administrador/Home_NewCursoActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_new_list_estudiante.xml">
       <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="44" selection-start-line="44" selection-end-line="48" selection-end-column="32" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/helpers/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -872,31 +875,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/helpers/Globals.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/domain/model/Estudiante.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="44" column="40" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
-          <folding>
-            <element signature="e#1183#1184#0" expanded="true" />
-            <element signature="e#1344#1345#0" expanded="true" />
-            <element signature="e#1385#1386#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Users/USUARIO/Documents/AndroidStudio/DeviceExplorer/genymotion-custom_phone-192.168.43.101_5555/storage/emulated/0/Download/ListaEstudiantes4.csv">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://D:/Users/USUARIO/Documents/AndroidStudio/DeviceExplorer/genymotion-custom_phone-192.168.43.101_5555/storage/emulated/0/Download/ListaEstudiantes4.csv" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/activity/administrador/Home_AdminActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2006">
+          <caret line="146" column="39" selection-start-line="146" selection-start-column="39" selection-end-line="146" selection-end-column="39" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/domain/model/Docente.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
+        <state relative-caret-position="357">
           <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
           <folding>
             <element signature="e#773#774#0" expanded="true" />
@@ -912,30 +908,115 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_list_new_docente.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
+        <state relative-caret-position="442">
           <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
-          <folding>
-            <element signature="e#821#840#0" expanded="true" />
-            <element signature="e#1691#1710#0" expanded="true" />
-          </folding>
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/administrador/NewListEstudianteFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2065">
+        <state relative-caret-position="3247">
           <caret line="249" selection-start-line="249" selection-end-line="249" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_new_list_estudiante.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="44" selection-start-line="44" selection-end-line="48" selection-end-column="32" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/activity/administrador/Home_NewCursoActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/helpers/Globals.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/administrador/ListNewDocenteFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
+        <state relative-caret-position="40">
           <caret line="736" column="62" selection-start-line="736" selection-start-column="62" selection-end-line="736" selection-end-column="62" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/activity/estudiante/HomeEstudianteActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="62" column="65" selection-start-line="62" selection-start-column="65" selection-end-line="62" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="57" column="62" selection-start-line="57" selection-start-column="62" selection-end-line="57" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/Estudiante/CasaHomeEstudianteFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="313" column="20" selection-start-line="313" selection-start-column="20" selection-end-line="313" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home_estudiante.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/asus/dconfo_app/presentation/view/fragment/Estudiante/Tipo1EstudianteFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2609">
+          <caret line="369" column="69" selection-start-line="369" selection-start-column="69" selection-end-line="369" selection-end-column="69" />
+          <folding>
+            <element signature="e#10158#10424#0" expanded="true" />
+            <element signature="e#10423#10424#0" expanded="true" />
+            <element signature="e#10530#10796#0" expanded="true" />
+            <element signature="e#10795#10796#0" expanded="true" />
+            <element signature="e#10902#11168#0" expanded="true" />
+            <element signature="e#11167#11168#0" expanded="true" />
+            <element signature="e#11274#11540#0" expanded="true" />
+            <element signature="e#11539#11540#0" expanded="true" />
+            <element signature="e#11646#11912#0" expanded="true" />
+            <element signature="e#11911#11912#0" expanded="true" />
+            <element signature="e#12018#12284#0" expanded="true" />
+            <element signature="e#12283#12284#0" expanded="true" />
+            <element signature="e#12401#12667#0" expanded="true" />
+            <element signature="e#12666#12667#0" expanded="true" />
+            <element signature="e#13497#14362#0" expanded="true" />
+            <element signature="e#14361#14362#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_tipo1_estudiante.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="245" column="68" lean-forward="true" selection-start-line="245" selection-start-column="68" selection-end-line="245" selection-end-column="68" />
+          <folding>
+            <element signature="e#3202#3220#0" expanded="true" />
+            <element signature="e#3944#3962#0" expanded="true" />
+            <element signature="e#7563#7581#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
   </component>
 </project>

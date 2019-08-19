@@ -87,7 +87,9 @@ public class Tipo1EstudianteFragment extends Fragment
     private Button btn_b3;
     private Button btn_b4;
     private Button btn_b5;
+    private Button btn_b6;
     private Button btn_responder;
+    private Button btn_corregir;
 
     private TextToSpeech mTTS;
     private TextView txt_miRespuesta;
@@ -116,6 +118,7 @@ public class Tipo1EstudianteFragment extends Fragment
     JsonObjectRequest jsonObjectRequest;
 
     int campanada;
+    int toques=0;
     String cantLexemas;
     ProgressDialog progreso;
 
@@ -210,6 +213,7 @@ public class Tipo1EstudianteFragment extends Fragment
         mButtonSpeak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btn_responder.setEnabled(true);
                 Toast.makeText(getActivity(), "boton", Toast.LENGTH_SHORT).show();
                 //speak1(getView());
                 speak();
@@ -274,14 +278,98 @@ public class Tipo1EstudianteFragment extends Fragment
             }
         });
         btn_b1 = (Button) view.findViewById(R.id.btn_estudiante_b1);
+        btn_b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //btn_responder.setEnabled(true);
+                campanada++;
+                txt_miRespuesta.setText(String.valueOf(campanada));
+                mediaPlayer.start();
+                btn_b1.setBackground(getResources().getDrawable(R.drawable.selec));
+            }
+        });
         btn_b2 = (Button) view.findViewById(R.id.btn_estudiante_b2);
+        btn_b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //btn_responder.setEnabled(true);
+                campanada++;
+                txt_miRespuesta.setText(String.valueOf(campanada));
+                mediaPlayer.start();
+                btn_b2.setBackground(getResources().getDrawable(R.drawable.selec));
+            }
+        });
         btn_b3 = (Button) view.findViewById(R.id.btn_estudiante_b3);
+        btn_b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //btn_responder.setEnabled(true);
+                campanada++;
+                txt_miRespuesta.setText(String.valueOf(campanada));
+                mediaPlayer.start();
+                btn_b3.setBackground(getResources().getDrawable(R.drawable.selec));
+            }
+        });
         btn_b4 = (Button) view.findViewById(R.id.btn_estudiante_b4);
+        btn_b4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //btn_responder.setEnabled(true);
+                campanada++;
+                txt_miRespuesta.setText(String.valueOf(campanada));
+                mediaPlayer.start();
+                btn_b4.setBackground(getResources().getDrawable(R.drawable.selec));
+            }
+        });
         btn_b5 = (Button) view.findViewById(R.id.btn_estudiante_b5);
+        btn_b5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               // btn_responder.setEnabled(true);
+                campanada++;
+                txt_miRespuesta.setText(String.valueOf(campanada));
+                mediaPlayer.start();
+                btn_b5.setBackground(getResources().getDrawable(R.drawable.selec));
+            }
+        });
+        btn_b6 = (Button) view.findViewById(R.id.btn_estudiante_b6);
+        btn_b6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //btn_responder.setEnabled(true);
+                campanada++;
+                txt_miRespuesta.setText(String.valueOf(campanada));
+                mediaPlayer.start();
+                btn_b6.setBackground(getResources().getDrawable(R.drawable.selec));
+            }
+        });
+        btn_corregir = (Button) view.findViewById(R.id.btn_estudiante_restart);
+        btn_corregir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                campanada=0;
+                txt_miRespuesta.setText(String.valueOf(campanada));
+                mediaPlayer.start();
+                btn_b1.setBackground(getResources().getDrawable(R.drawable.bell_96px));
+                btn_b2.setBackground(getResources().getDrawable(R.drawable.bell_96px));
+                btn_b3.setBackground(getResources().getDrawable(R.drawable.bell_96px));
+                btn_b4.setBackground(getResources().getDrawable(R.drawable.bell_96px));
+                btn_b5.setBackground(getResources().getDrawable(R.drawable.bell_96px));
+                btn_b6.setBackground(getResources().getDrawable(R.drawable.bell_96px));
+            }
+        });
+
+      /*  btn_corregir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });*/
 
 
         txt_miRespuesta = (TextView) view.findViewById(R.id.txt_estudiante_resultado);
         btn_responder = (Button) view.findViewById(R.id.btn_estudiante_Responde);
+        btn_responder.setEnabled(false);
         btn_responder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

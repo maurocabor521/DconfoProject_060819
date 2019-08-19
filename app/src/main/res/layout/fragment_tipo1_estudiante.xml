@@ -16,19 +16,22 @@
         android:orientation="horizontal"
         android:visibility="gone">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="Ejercicio Léxico" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@color/editTextColorWhite"
             android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/orange"
+                android:gravity="center_horizontal"
+                android:text="Ejercicio Léxico" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -59,23 +62,24 @@
             android:id="@+id/ll_tipo_muestra_ejercicio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:orientation="vertical"
             android:visibility="visible">
-
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <ImageButton
                     android:id="@+id/iv_estudiante_tipo1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/tsize_5dp"
                     android:layout_weight="0.5"
                     android:background="@drawable/ic_no_foto_80dp" />
-
 
             </LinearLayout>
 
@@ -90,6 +94,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/tsize_5dp"
                     android:background="@drawable/recording_96"
                     android:textStyle="bold"
                     android:theme="@style/RaisedButtonDark" />
@@ -97,13 +102,15 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="10sp">
+                    android:orientation="vertical"
+                    android:padding="10sp"
+                    android:visibility="gone">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:gravity="center">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -121,7 +128,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:gravity="center">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -141,6 +149,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
                     android:background="@color/colorAccent"
                     android:orientation="horizontal">
 
@@ -148,32 +157,50 @@
                         android:id="@+id/btn_estudiante_b1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/ic_square_30dp" />
+                        android:background="@drawable/bell_96px" />
 
                     <Button
                         android:id="@+id/btn_estudiante_b2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/ic_square_30dp" />
+                        android:background="@drawable/bell_96px" />
 
                     <Button
                         android:id="@+id/btn_estudiante_b3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/ic_square_30dp" />
+                        android:background="@drawable/bell_96px" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/tsize_5dp"
+                    android:background="@color/colorAccent"
+                    android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/btn_estudiante_b4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/ic_square_30dp" />
+                        android:background="@drawable/bell_96px" />
 
                     <Button
                         android:id="@+id/btn_estudiante_b5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/ic_square_30dp" />
+                        android:background="@drawable/bell_96px" />
+
+                    <Button
+                        android:id="@+id/btn_estudiante_b6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bell_96px" />
+
                 </LinearLayout>
+
 
                 <Button
                     android:id="@+id/btn_estudiante_bell"
@@ -181,7 +208,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="0.5"
-                    android:background="@drawable/bell_96px" />
+                    android:background="@drawable/bell_96px"
+                    android:visibility="gone" />
 
             </LinearLayout>
 
@@ -196,23 +224,60 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:hint="RESULTADO"
+                    android:hint="Campanadas"
                     android:textSize="20dp"
                     android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:background="@color/editTextColorWhite"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_margin="2dp">
+
+                        <Button
+                            android:id="@+id/btn_estudiante_restart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:background="@drawable/restart_64px"
+                            android:visibility="visible" />
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Reiniciar"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
 
                 <Button
                     android:id="@+id/btn_estudiante_Responde"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Responder"
-                    android:theme="@style/RaisedButtonDark" />
+                    android:theme="@style/RaisedButtonGreen1" />
 
-              <!--  <pl.droidsonroids.gif.GifImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:src="@drawable/rana_gif"
-                    android:id="@+id/pl_gif_lex1"/>-->
+
+                <!--  <pl.droidsonroids.gif.GifImageButton
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_gravity="center"
+                      android:src="@drawable/rana_gif"
+                      android:id="@+id/pl_gif_lex1"/>-->
 
 
             </LinearLayout>
