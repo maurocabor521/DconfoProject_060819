@@ -82,6 +82,7 @@ public class HomeEstudianteActivity extends AppCompatActivity implements
     public void crearTranstition() {
         Bundle bundle = new Bundle();
         bundle.putInt("idEstudiante", idestudiante);
+        System.out.println("//////////////////////////////////////////idEstudiante: "+idestudiante);
         bundle.putString("nameEstudiante", nameestudiante);
 
         homeEstudianteFragment = new CasaHomeEstudianteFragment();

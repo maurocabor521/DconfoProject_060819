@@ -39,7 +39,7 @@ public class LoginEstudianteActivity extends AppCompatActivity implements Respon
     private EditText edt_email;
     private EditText edt_pass;
     private Button btn_ingresar;
-    private int iddconte_bundle=0;
+    private int iddconte_bundle = 0;
     private String namedocente_bundle;
     ProgressDialog progreso;
 
@@ -80,14 +80,14 @@ public class LoginEstudianteActivity extends AppCompatActivity implements Respon
         String email = edt_email.getText().toString();
         String password = edt_pass.getText().toString();
 
-        String url_lh=Globals.url;
+        String url_lh = Globals.url;
         // String ip = getString(R.string.ip);
 
         //String url = "http://192.168.0.13/" +
-        String url = "http://"+url_lh+"/" +
+        String url = "http://" + url_lh + "/" +
                 //"ejemploBDRemota/wsJSONConsultarUsuario.php?documento=" + campoDocumento.getText().toString();
-                "proyecto_dconfo_v1/wsJSONConsultarEstudiante.php?passwork_estudiante="+password+"&emailAcudienteestudiante="+email;
-       // Toast.makeText(getApplicationContext(), "Mensaje: " + cod, Toast.LENGTH_SHORT).show();
+                "proyecto_dconfo_v1/wsJSONConsultarEstudiante.php?passwork_estudiante=" + password + "&emailAcudienteestudiante=" + email;
+        // Toast.makeText(getApplicationContext(), "Mensaje: " + cod, Toast.LENGTH_SHORT).show();
         // String url = ip+"ejemploBDRemota/wsJSONConsultarUsuarioImagen.php?documento=" + campoDocumento.getText().toString();
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
@@ -97,19 +97,19 @@ public class LoginEstudianteActivity extends AppCompatActivity implements Respon
 
     private void cargarWebService() {
 
-      //  progreso.setMessage("Cargando...");
+        //  progreso.setMessage("Cargando...");
 //        progreso.show();
-        String url_lh=Globals.url;
+        String url_lh = Globals.url;
         String url =
-                "http://"+url_lh+"/proyecto_dconfo_v1/wsJSONLogin1.php?";
-               // "http://192.168.0.13/proyecto_dconfo/wsJSONLogin.php?";
+                "http://" + url_lh + "/proyecto_dconfo_v1/wsJSONLogin1.php?";
+        // "http://192.168.0.13/proyecto_dconfo/wsJSONLogin.php?";
         stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {//recibe respuesta del webservice,cuando esta correcto
                 progreso.hide();
                 if (response.trim().equalsIgnoreCase("registra")) {
 
-                //if (response.contentEquals("registra")) {
+                    //if (response.contentEquals("registra")) {
                     edt_email.setText("");
                     edt_pass.setText("");
                     //Login miLogin = new Login();
@@ -118,12 +118,12 @@ public class LoginEstudianteActivity extends AppCompatActivity implements Respon
                     parmetros.putString("namedocente", namedocente_bundle);
 
                     Intent intent = new Intent(LoginEstudianteActivity.this, ManageCursosDocenteActivity.class);
-                   // intent.putExtras(parmetros);
+                    // intent.putExtras(parmetros);
                     startActivity(intent);
 
 
                     Toast.makeText(getApplicationContext(), "Se ha cargado con éxito", Toast.LENGTH_LONG).show();
-                    Toast.makeText(getApplicationContext(), "iddocente: "+iddconte_bundle, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "iddocente: " + iddconte_bundle, Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(getApplicationContext(), "No se ha cargado ", Toast.LENGTH_LONG).show();
                     Log.i("ERROR", "RESPONSE" + response.toString());
@@ -154,7 +154,7 @@ public class LoginEstudianteActivity extends AppCompatActivity implements Respon
         VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);//p21
     }
 
-    public void enviarIdDocente(View view){
+    public void enviarIdDocente(View view) {
 
       /* tv1.setText("1");
 
@@ -198,14 +198,19 @@ public class LoginEstudianteActivity extends AppCompatActivity implements Respon
         estudiante.setIdestudiante(jsonObject.optInt("idestudiante"));
         estudiante.setNameestudiante(jsonObject.optString("nameestudiante"));
 
-        Intent intent = new Intent(LoginEstudianteActivity.this, HomeEstudianteActivity.class);
-        int idestudiante = estudiante.getIdestudiante();
-        String nameestudiante=estudiante.getNameestudiante();
-        intent.putExtra("idestudiante", idestudiante);
-        intent.putExtra("nameestudiante", nameestudiante);
-        startActivity(intent);
-        Toast.makeText(getApplicationContext(), "ESTUDIANTE: " + estudiante.getIdestudiante().toString(), Toast.LENGTH_SHORT).show();
+        if (estudiante.getIdestudiante() == 0) {
+            Toast.makeText(getApplicationContext(), "Incorrecto Correo o Email ", Toast.LENGTH_SHORT).show();
+        } else {
 
+
+            Intent intent = new Intent(LoginEstudianteActivity.this, HomeEstudianteActivity.class);
+            int idestudiante = estudiante.getIdestudiante();
+            String nameestudiante = estudiante.getNameestudiante();
+            intent.putExtra("idestudiante", idestudiante);
+            intent.putExtra("nameestudiante", nameestudiante);
+            startActivity(intent);
+            Toast.makeText(getApplicationContext(), "ESTUDIANTE: " + estudiante.getIdestudiante().toString(), Toast.LENGTH_SHORT).show();
+        }
       /*  } else if (usuario == "estudiante") {
             Estudiante estudiante = new Estudiante();
             estudiante.setDniestudiante(jsonObject.optInt("dniestudiante"));

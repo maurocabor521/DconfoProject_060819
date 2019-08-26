@@ -115,16 +115,21 @@ public class LoginAdministradorActivity extends AppCompatActivity implements Res
     /*    if (usuario == "administrador") {
 
         } else if (usuario == "docente") {*/
-        Administrador administrador=new Administrador();
+        Administrador administrador = new Administrador();
         administrador.setIdAdminstrador(jsonObject.optInt("idAdminstrador"));
         administrador.setNameAdminstrador(jsonObject.optString("nameAdminstrador"));
 
-        Intent intent = new Intent(LoginAdministradorActivity.this, Home_AdminActivity.class);
-        int idadministrador = administrador.getIdAdminstrador();
-        String nameadministrador = administrador.getNameAdminstrador();
-        intent.putExtra("idadministrador", idadministrador);
-        intent.putExtra("nameadministrador", nameadministrador);
-        startActivity(intent);
-        Toast.makeText(getApplicationContext(), "Administrador: " + administrador.getIdAdminstrador().toString(), Toast.LENGTH_SHORT).show();
+        if (administrador.getIdAdminstrador() == 0) {
+            Toast.makeText(getApplicationContext(), "Incorrecto Correo o Email " , Toast.LENGTH_SHORT).show();
+        } else {
+            Intent intent = new Intent(LoginAdministradorActivity.this, Home_AdminActivity.class);
+            int idadministrador = administrador.getIdAdminstrador();
+            String nameadministrador = administrador.getNameAdminstrador();
+            intent.putExtra("idadministrador", idadministrador);
+            intent.putExtra("nameadministrador", nameadministrador);
+            startActivity(intent);
+            //Toast.makeText(getApplicationContext(), "json: " + json.length(), Toast.LENGTH_SHORT).show();
+            System.out.println("Json: "+jsonObject);
+        }
     }
 }

@@ -197,22 +197,27 @@ public class LoginDocenteActivity extends AppCompatActivity implements Response.
             e.printStackTrace();
         }
 
-        int idDocente = docente.getIddocente();
-        String nameDocente = docente.getNamedocente();
+        if (docente.getIddocente() == 0) {
+            Toast.makeText(getApplicationContext(), "Incorrecto Correo o Email " , Toast.LENGTH_SHORT).show();
+        } else {
 
-        setIdDocente(idDocente);
+            int idDocente = docente.getIddocente();
+            String nameDocente = docente.getNamedocente();
 
-        Bundle parametros = new Bundle();
-        parametros.putInt("iddocente", idDocente);
-        parametros.putString("namedocente", nameDocente);
-        //Toast.makeText(getApplicationContext(), "name Doc: " + nameDocente, Toast.LENGTH_LONG).show();
+            setIdDocente(idDocente);
 
-        Intent intent = new Intent(LoginDocenteActivity.this, ManageCursosDocenteActivity.class);
-        intent.putExtras(parametros);
-        startActivity(intent);
-        // iddconte_bundle=login.getIddocente();
-        // Toast.makeText(getApplicationContext(), "Login: "+docente.getIddocente(), Toast.LENGTH_LONG).show();
-        Log.e("info", "info: " + docente.getIddocente());
+            Bundle parametros = new Bundle();
+            parametros.putInt("iddocente", idDocente);
+            parametros.putString("namedocente", nameDocente);
+            //Toast.makeText(getApplicationContext(), "name Doc: " + nameDocente, Toast.LENGTH_LONG).show();
+
+            Intent intent = new Intent(LoginDocenteActivity.this, ManageCursosDocenteActivity.class);
+            intent.putExtras(parametros);
+            startActivity(intent);
+            // iddconte_bundle=login.getIddocente();
+            // Toast.makeText(getApplicationContext(), "Login: "+docente.getIddocente(), Toast.LENGTH_LONG).show();
+            Log.e("info", "info: " + docente.getIddocente());
+        }
     }
 
     public void setIdDocente(int id_Docente) {
