@@ -55,7 +55,7 @@ public class AsignarDeberDocenteActivity extends AppCompatActivity {
         listaEstudiantes();
         listaEjercicios();
         if(!(idEstudianteDeber.equals(null)&&(idEjercicioDeber.equals(null)))){
-            Toast.makeText(getApplicationContext(),"llamar webservice",Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(),"llamar webservice",Toast.LENGTH_LONG).show();
         }
     }
 

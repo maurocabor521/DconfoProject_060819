@@ -133,7 +133,7 @@ public class ConsultEstudianteFragment extends Fragment implements Response.List
                 //"ejemploBDRemota/wsJSONConsultarUsuario.php?documento=" + campoDocumento.getText().toString();
                 //"proyecto_dconfo_v1/wsJSONConsultarEstudiante.php?documento="+cod;
                 "proyecto_dconfo_v1/31wsJSONConsultarEstudiante_id_admin.php?idestudiante="+cod;
-        Toast.makeText(getContext(), "Mensaje: " + cod, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getContext(), "Mensaje: " + cod, Toast.LENGTH_SHORT).show();
         // String url = ip+"ejemploBDRemota/wsJSONConsultarUsuarioImagen.php?documento=" + campoDocumento.getText().toString();
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
@@ -144,7 +144,7 @@ public class ConsultEstudianteFragment extends Fragment implements Response.List
     @Override
     public void onErrorResponse(VolleyError error) {
         progreso.hide();
-        Toast.makeText(getContext(), "No se ha realizado la consulta de usuario" + error.toString(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(), "No se ha realizado la consulta de usuario" , Toast.LENGTH_LONG).show();
         Log.i("ERROR", error.toString());
        // Log.i("tagconvertstr", "["+error+"]");
     }
@@ -155,7 +155,7 @@ public class ConsultEstudianteFragment extends Fragment implements Response.List
     public void onResponse(JSONObject response) {
         //lectura del Json
         progreso.hide();
-        Toast.makeText(getContext(), "Mensaje: " + response.toString(), Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getContext(), "Mensaje: " + response.toString(), Toast.LENGTH_SHORT).show();
         System.out.println("mes"+response.toString());
         Estudiante estudiante = new Estudiante();
         JSONArray json = response.optJSONArray("estudiante");

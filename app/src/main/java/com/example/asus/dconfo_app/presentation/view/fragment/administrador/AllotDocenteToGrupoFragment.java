@@ -129,7 +129,7 @@ public class AllotDocenteToGrupoFragment extends Fragment {
        Connection connection=new Connection(getContext(),view);
         //lstNombreCurso=connection.getListaCursos();
         System.out.println("lista cursos: "+lstNombreCurso);
-        Toast.makeText(getContext(), "lista cursos: "+lstNombreCurso, Toast.LENGTH_LONG).show();
+        //Toast.makeText(getContext(), "lista cursos: "+lstNombreCurso, Toast.LENGTH_LONG).show();
       //  String url_lh = Globals.url;
       //  String url = "http://" + url_lh + "/proyecto_dconfo/wsJSONConsultarListaCursos.php";
 

@@ -275,7 +275,7 @@ public class ListNewDocenteFragment extends Fragment implements View.OnClickList
                             System.out.println("f: " + f.getAbsolutePath());
                             System.out.println("fin.readline: " + texto);
                             // txt_mensaje.setText(texto);
-                            Toast.makeText(getContext(), "f: " + f.getAbsolutePath(), Toast.LENGTH_LONG).show();
+                           // Toast.makeText(getContext(), "f: " + f.getAbsolutePath(), Toast.LENGTH_LONG).show();
                         }
                         while ((texto = fin.readLine()) == ";") {
                             cont++;
@@ -314,7 +314,7 @@ public class ListNewDocenteFragment extends Fragment implements View.OnClickList
 
                         //+ "/Download/", "archivo_csv.csv");
 
-                        Toast.makeText(getContext(), "f_write: " + f.getAbsolutePath(), Toast.LENGTH_LONG).show();
+                      //  Toast.makeText(getContext(), "f_write: " + f.getAbsolutePath(), Toast.LENGTH_LONG).show();
 
                         OutputStreamWriter fout =
                                 new OutputStreamWriter(
@@ -381,7 +381,7 @@ public class ListNewDocenteFragment extends Fragment implements View.OnClickList
 
     private void mostrarDialogOpciones() {
         //final boolean flag1=false;
-        final CharSequence[] opciones = {"Mis archivos", "Elegir de Galeria", "Cancelar"};
+        final CharSequence[] opciones = {"Mis archivos", "Cancelar"};
         final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle("Elige una Opción");
         builder.setItems(opciones, new DialogInterface.OnClickListener() {

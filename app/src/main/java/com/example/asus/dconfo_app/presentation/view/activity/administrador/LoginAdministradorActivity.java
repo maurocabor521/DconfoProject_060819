@@ -91,7 +91,7 @@ public class LoginAdministradorActivity extends AppCompatActivity implements Res
     @Override
     public void onErrorResponse(VolleyError error) {
         progreso.hide();
-        Toast.makeText(getApplicationContext(), "No se ha realizado la consulta de usuario" + error.toString(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "No se ha realizado la consulta de usuario" , Toast.LENGTH_LONG).show();
         Log.i("ERROR", error.toString());
 
     }

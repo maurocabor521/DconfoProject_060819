@@ -65,9 +65,9 @@ public class MyReportsDocActivity extends AppCompatActivity {
             mDoc.addAuthor("Docente");
             mDoc.add(new Paragraph(mText));
             mDoc.close();
-            Toast.makeText(getApplicationContext(),mFileName+".pdf\nis Saved to\n"+mFilePath,Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(),mFileName+".pdf\nis Saved to\n"+mFilePath,Toast.LENGTH_SHORT).show();
         }catch (Exception e){
-            Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -381,7 +381,7 @@ public class NewListEstudianteFragment extends Fragment implements View.OnClickL
 
     private void mostrarDialogOpciones() {
         //final boolean flag1=false;
-        final CharSequence[] opciones = {"Mis archivos", "Elegir de Galeria", "Cancelar"};
+        final CharSequence[] opciones = {"Mis archivos", "Cancelar"};
         final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle("Elige una Opción");
         builder.setItems(opciones, new DialogInterface.OnClickListener() {

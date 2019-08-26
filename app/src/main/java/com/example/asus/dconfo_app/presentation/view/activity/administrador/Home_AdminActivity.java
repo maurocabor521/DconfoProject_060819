@@ -136,14 +136,14 @@ public class Home_AdminActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_newDocente) {
-            Toast.makeText(getApplicationContext(), "docente", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "docente", Toast.LENGTH_SHORT).show();
             replaceFragment(NewDocenteFragment.getInstance(), true);
 
           /*  getSupportFragmentManager().beginTransaction().replace(R.id.content_main, newDocenteFragment)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .addToBackStack(null).commit();*/
         } else if (id == R.id.nav_newListDocente) {
-            Toast.makeText(getApplicationContext(), "lista docente", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "lista docente", Toast.LENGTH_SHORT).show();
             replaceFragment(ListNewDocenteFragment.getInstance(), true);
         } else if (id == R.id.nav_new_Estudiante) {
             replaceFragment(NewEstudianteFragment.getInstance(), true);

@@ -63,14 +63,14 @@ public class Home_NewCursoActivity extends AppCompatActivity
                         getSupportFragmentManager().beginTransaction().replace(R.id.container_Admincurso, newCursoFragment)
                                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                                 .addToBackStack(null).commit();
-                        Toast.makeText(getApplicationContext(), "curso", Toast.LENGTH_LONG).show();
+                       // Toast.makeText(getApplicationContext(), "curso", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.bott_grupo:
                         newGrupoFragment = new NewGrupoFragment();
                         getSupportFragmentManager().beginTransaction().replace(R.id.container_Admincurso, newGrupoFragment)
                                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                                 .addToBackStack(null).commit();
-                        Toast.makeText(getApplicationContext(), "grupo", Toast.LENGTH_LONG).show();
+                       // Toast.makeText(getApplicationContext(), "grupo", Toast.LENGTH_LONG).show();
                         //Validamos que se trabaja en modo portrait desde un smarthPhone  //video p3
                   /*      if (findViewById(R.id.container_exercice) != null) {
                             Utilidades.PORTRAIT = true;//video p4 min 1:46
@@ -86,7 +86,7 @@ public class Home_NewCursoActivity extends AppCompatActivity
                         }*/
                         break;
                     case R.id.bott_estudiantes:
-                        Toast.makeText(getApplicationContext(), "estudiantes", Toast.LENGTH_LONG).show();
+                       // Toast.makeText(getApplicationContext(), "estudiantes", Toast.LENGTH_LONG).show();
                         newEstudianteFragment = new NewEstudianteFragment();
                         getSupportFragmentManager().beginTransaction().replace(R.id.container_Admincurso, newEstudianteFragment)
                                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)

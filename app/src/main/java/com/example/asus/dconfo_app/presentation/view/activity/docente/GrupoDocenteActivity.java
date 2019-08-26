@@ -18,8 +18,8 @@ public class GrupoDocenteActivity extends AppCompatActivity {
         int idgrupo = datos.getInt("idgrupo");
         int idcurso = datos.getInt("idcurso");
 
-        Toast.makeText(getApplicationContext(),"idgrupo: "+idgrupo,Toast.LENGTH_LONG).show();
-        Toast.makeText(getApplicationContext(),"idcurso: "+idcurso,Toast.LENGTH_LONG).show();
+       // Toast.makeText(getApplicationContext(),"idgrupo: "+idgrupo,Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),"idcurso: "+idcurso,Toast.LENGTH_LONG).show();
     }
 
     public void showToolbar(String tittle, boolean upButton) {

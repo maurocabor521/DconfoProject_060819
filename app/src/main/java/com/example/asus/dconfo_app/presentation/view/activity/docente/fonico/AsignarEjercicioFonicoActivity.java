@@ -219,7 +219,7 @@ public class AsignarEjercicioFonicoActivity extends AppCompatActivity {
                                 }
                             });
 
-                            Toast.makeText(getApplicationContext(), "lista estudiantes" + listaStringEstudiantes, Toast.LENGTH_LONG).show();
+                            //Toast.makeText(getApplicationContext(), "lista estudiantes" + listaStringEstudiantes, Toast.LENGTH_LONG).show();
                             System.out.println("estudiantes size: " + listaEstudiantes.size());
                             System.out.println("estudiantes: " + listaEstudiantes.get(0).getIdestudiante());
 

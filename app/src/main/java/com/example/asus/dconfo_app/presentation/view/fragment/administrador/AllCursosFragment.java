@@ -132,7 +132,7 @@ public class AllCursosFragment extends Fragment implements Response.Listener<JSO
     @Override
     public void onErrorResponse(VolleyError error) {
         progreso.hide();
-        Toast.makeText(getContext(), "No se puede conectar exitosamente" + error.toString(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(), "No se puede conectar exitosamente" , Toast.LENGTH_LONG).show();
         System.out.println();
         Log.d("ERROR", error.toString());
         progreso.hide();
@@ -162,7 +162,7 @@ public class AllCursosFragment extends Fragment implements Response.Listener<JSO
             rvListaCursos.setAdapter(cursosAdapter);
         } catch (JSONException e) {
             e.printStackTrace();
-            Toast.makeText(getContext(), "No se ha podido establecer conexión: " + response.toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), "No se ha podido establecer conexión: " , Toast.LENGTH_LONG).show();
             progreso.hide();
         }
     }

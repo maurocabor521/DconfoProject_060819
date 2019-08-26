@@ -378,7 +378,7 @@ public class AsignarEjercicioSilabicoActivity extends AppCompatActivity {
                             rv_listaEjercicios.setAdapter(tipoEjerciciosDocenteEjerG2Adapter);
                             rv_listaEjercicios.setVisibility(View.VISIBLE);
 
-                            Toast.makeText(getApplicationContext(), "lista EJERCICIOS: " + listaStringEjercicios.toString(), Toast.LENGTH_LONG).show();
+                           // Toast.makeText(getApplicationContext(), "lista EJERCICIOS: " + listaStringEjercicios.toString(), Toast.LENGTH_LONG).show();
                            /* System.out.println("estudiantes size: " + listaEstudiantes.size());
                             System.out.println("estudiantes: " + listaEstudiantes.get(0).getIdestudiante());*/
 
@@ -394,7 +394,7 @@ public class AsignarEjercicioSilabicoActivity extends AppCompatActivity {
                         System.out.println();
                         txterror.setText(error.toString());
                         Log.d("ERROR Ejercicios: ", error.toString());
-                        Toast.makeText(getApplicationContext(), "ERROR" + error.toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "ERROR" , Toast.LENGTH_LONG).show();
                     }
                 }
         );

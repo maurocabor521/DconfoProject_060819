@@ -329,7 +329,7 @@ public class AsignarEstudianteDeberActivity extends AppCompatActivity {
                     listaIdEjerG2_Asi_H_E.clear();
                     cargarWebService();
                     //System.out.println("if 1 : ");
-                    Toast.makeText(getApplicationContext(), "1", Toast.LENGTH_LONG).show();
+                   // Toast.makeText(getApplicationContext(), "1", Toast.LENGTH_LONG).show();
                 } else if (flagEst && flagAct) {
                     flag=0;
                     flag1=0;
@@ -341,7 +341,7 @@ public class AsignarEstudianteDeberActivity extends AppCompatActivity {
                     listar_Ejercicios_de_Asignacion();
 
                     // asignar_deber_Ejercicios_de_asignacion();
-                    Toast.makeText(getApplicationContext(), "2", Toast.LENGTH_LONG).show();
+                   // Toast.makeText(getApplicationContext(), "2", Toast.LENGTH_LONG).show();
                     //cargarEstudiante_X_Actividad(idactividad);
                 } else if (flagXGrupo && flagEje) {
                     //idactividad = Integer.parseInt(edt_idActividades.getText().toString());
@@ -355,7 +355,7 @@ public class AsignarEstudianteDeberActivity extends AppCompatActivity {
                     grupoestudiante = Integer.parseInt(edt_idGrupoEstudiantes.getText().toString());
                     crearGrupoEstudiantesHasDeber();
                     //cargarEstudiante_X_Actividad(idactividad);
-                    Toast.makeText(getApplicationContext(), "3", Toast.LENGTH_LONG).show();
+                   // Toast.makeText(getApplicationContext(), "3", Toast.LENGTH_LONG).show();
                 } else if (flagXGrupo && flagAct) {
                     //idactividad = Integer.parseInt(edt_idActividades.getText().toString());
                     //System.out.println("idactividad : " + idactividad);
@@ -371,7 +371,7 @@ public class AsignarEstudianteDeberActivity extends AppCompatActivity {
                     listar_Ejercicios_de_Asignacion();
                     crearGrupoEstudiantesHasDeber();
 
-                    Toast.makeText(getApplicationContext(), "4", Toast.LENGTH_LONG).show();
+                   // Toast.makeText(getApplicationContext(), "4", Toast.LENGTH_LONG).show();
                     //cargarEstudiante_X_Actividad(idactividad);
                 }
 
