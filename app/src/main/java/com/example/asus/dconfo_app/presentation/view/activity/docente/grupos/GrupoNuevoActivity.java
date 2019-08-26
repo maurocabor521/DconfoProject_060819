@@ -203,7 +203,7 @@ public class GrupoNuevoActivity extends AppCompatActivity {
         cad.add("tres");
         ArrayAdapter<String> adapterListView = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, listaIdEstudiantes);
         lv_estudiantes.setAdapter(adapterListView);
-        Toast.makeText(getApplicationContext(), "lista cad:" + cad.size(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), "lista cad:" + cad.size(), Toast.LENGTH_SHORT).show();
         lv_estudiantes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

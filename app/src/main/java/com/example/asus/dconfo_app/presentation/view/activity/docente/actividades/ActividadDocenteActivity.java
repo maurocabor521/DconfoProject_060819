@@ -436,7 +436,7 @@ public class ActividadDocenteActivity extends AppCompatActivity implements Respo
                     // cv_item_ejecicio.setCardBackgroundColor(c);
                     System.out.println("lista id ejercicio: " + listaIdEjercicios);
                     // buttonActive();
-                    Toast.makeText(getApplicationContext(), "lista id ejercicios: " + listaIdEjercicios.toString(), Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getApplicationContext(), "lista id ejercicios: " + listaIdEjercicios.toString(), Toast.LENGTH_SHORT).show();
 
                 }
             });

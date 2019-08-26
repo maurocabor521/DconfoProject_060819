@@ -248,7 +248,7 @@ public class CasaHomeEstudianteFragment extends Fragment implements Response.Lis
     @Override
     public void onErrorResponse(VolleyError error) {
         progreso.hide();
-        Toast.makeText(getContext(), "ERROR-CASAHOME" + error.toString(), Toast.LENGTH_LONG).show();
+       // Toast.makeText(getContext(), "ERROR-CASAHOME" + error.toString(), Toast.LENGTH_LONG).show();
         System.out.println("////////////////eeeerrrrrr////////////");
         if (buscar.equals("deber")) {
             Log.d("-ERROR-CASAHOME-deber: ", error.toString());
@@ -452,7 +452,7 @@ public class CasaHomeEstudianteFragment extends Fragment implements Response.Lis
         }//eje2
         else if (buscar.equals("eje3")) {//------------------------------------------------------------------------------------g3
 
-            Toast.makeText(getContext(), "grupo g3 activo: ", Toast.LENGTH_LONG).show();
+            //Toast.makeText(getContext(), "grupo g3 activo: ", Toast.LENGTH_LONG).show();
 
             ejercicioG2HasImagen = null;
             JSONArray json = response.optJSONArray("ejerg2hasimagen");
@@ -523,7 +523,7 @@ public class CasaHomeEstudianteFragment extends Fragment implements Response.Lis
                 }
                 if (tipo == 6) {
                     System.out.println("BUNDLE_T2: " + bundle_t2.toString());
-                    Toast.makeText(getContext(), "idejercicio: " + bundle_t2.toString(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getContext(), "idejercicio: " + bundle_t2.toString(), Toast.LENGTH_SHORT).show();
                     tipo2silabicoEstudianteFragment.setArguments(bundle_t2);
                     // inicioEjercicioFragment.setArguments(bundle);
                     getFragmentManager().beginTransaction().replace(R.id.container_HomeEstudiante, tipo2silabicoEstudianteFragment)
@@ -552,7 +552,7 @@ public class CasaHomeEstudianteFragment extends Fragment implements Response.Lis
         }//eje3
         else if (buscar.equals("eje4")) {//------------------------------------------------------------------------------------g3
 
-            Toast.makeText(getContext(), "grupo g4 activo: ", Toast.LENGTH_LONG).show();
+           // Toast.makeText(getContext(), "grupo g4 activo: ", Toast.LENGTH_LONG).show();
 
             ejercicioG2HasLetrag2 = null;
             JSONArray json = response.optJSONArray("ejerciciog2_has_letrag2");
@@ -664,8 +664,8 @@ public class CasaHomeEstudianteFragment extends Fragment implements Response.Lis
 
                 String cantLex = listaEjerciciosG2.get(rv_misDeberes.getChildAdapterPosition(v)).getCantidadLexemas();
                 String oracion = listaEjerciciosG2.get(rv_misDeberes.getChildAdapterPosition(v)).getOracion();
-                Toast.makeText(getContext(), "Cant lexe: " + cantLex, Toast.LENGTH_LONG).show();
-                Toast.makeText(getContext(), "oracion: " + oracion, Toast.LENGTH_LONG).show();
+               // Toast.makeText(getContext(), "Cant lexe: " + cantLex, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getContext(), "oracion: " + oracion, Toast.LENGTH_LONG).show();
 
                 String tipo2 = String.valueOf(ejerpos2);
 
@@ -839,7 +839,7 @@ public class CasaHomeEstudianteFragment extends Fragment implements Response.Lis
 
         // request.add(jsonObjectRequest);
         VolleySingleton.getIntanciaVolley(getContext()).addToRequestQueue(jsonObjectRequest);//p21
-        Toast.makeText(getContext(), "ejercicio a buscar", Toast.LENGTH_LONG).show();
+       // Toast.makeText(getContext(), "ejercicio a buscar", Toast.LENGTH_LONG).show();
     }
 
 

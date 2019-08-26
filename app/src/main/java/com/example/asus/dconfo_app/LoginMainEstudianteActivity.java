@@ -88,7 +88,7 @@ public class LoginMainEstudianteActivity extends AppCompatActivity implements Re
 
         // request.add(jsonObjectRequest);
         VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);//p21
-        Toast.makeText(getApplicationContext(), "web service 1111", Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "web service 1111", Toast.LENGTH_LONG).show();
     }
 
 
@@ -129,7 +129,7 @@ public class LoginMainEstudianteActivity extends AppCompatActivity implements Re
             int idestudiante = estudiante.getIdestudiante();
             intent.putExtra("idestudiante", idestudiante);
             startActivity(intent);
-            Toast.makeText(getApplicationContext(), "ESTUDIANTE: " + estudiante.getIdestudiante().toString(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "ESTUDIANTE: " + estudiante.getIdestudiante().toString(), Toast.LENGTH_SHORT).show();
 
       /*  } else if (usuario == "estudiante") {
             Estudiante estudiante = new Estudiante();

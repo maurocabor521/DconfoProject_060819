@@ -374,7 +374,7 @@ public class FindNotasXEstudianteFragment extends Fragment implements Response.L
     @Override
     public void onErrorResponse(VolleyError error) {
         progreso.hide();
-        Toast.makeText(getContext(), "No se puede cone , grupo doc" + error.toString(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(), "No se puede cone , grupo doc" , Toast.LENGTH_LONG).show();
         System.out.println();
         Log.d("ERROR", error.toString());
         progreso.hide();
@@ -427,7 +427,7 @@ public class FindNotasXEstudianteFragment extends Fragment implements Response.L
                 e.printStackTrace();
                 Log.d("error", response.toString());
 
-                Toast.makeText(getContext(), "No se ha podido establecer conexión: " + response.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "No se ha podido establecer conexión: " , Toast.LENGTH_LONG).show();
 
                 progreso.hide();
             }
@@ -485,7 +485,7 @@ public class FindNotasXEstudianteFragment extends Fragment implements Response.L
                     e.printStackTrace();
                     Log.d("error", response.toString());
 
-                    Toast.makeText(getContext(), "No se ha podido establecer conexión: " + response.toString(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "No se ha podido establecer conexión: " , Toast.LENGTH_LONG).show();
 
                     progreso.hide();
                 }

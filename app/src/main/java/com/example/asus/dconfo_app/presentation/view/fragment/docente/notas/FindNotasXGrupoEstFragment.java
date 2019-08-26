@@ -270,7 +270,7 @@ public class FindNotasXGrupoEstFragment extends Fragment implements Response.Lis
                 e.printStackTrace();
                 Log.d("error", response.toString());
 
-                Toast.makeText(getContext(), "No se ha podido establecer conexión: " + response.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "No se ha podido establecer conexión: " , Toast.LENGTH_LONG).show();
 
                 progreso.hide();
             }

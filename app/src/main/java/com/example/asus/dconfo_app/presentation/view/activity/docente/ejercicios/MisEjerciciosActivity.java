@@ -360,7 +360,7 @@ public class MisEjerciciosActivity extends AppCompatActivity implements Response
                         idejercicio = listaEjercicios.get(rv_ejercicios_act.
                                 getChildAdapterPosition(v)).getIdEjercicioG2();
 
-                        Toast.makeText(getApplicationContext(), "idejercicio: " + idejercicio, Toast.LENGTH_LONG).show();
+                       // Toast.makeText(getApplicationContext(), "idejercicio: " + idejercicio, Toast.LENGTH_LONG).show();
 
                         idactividad = listaEjercicios.get(rv_ejercicios_act.
                                 getChildAdapterPosition(v)).getIdActividad();
@@ -395,7 +395,7 @@ public class MisEjerciciosActivity extends AppCompatActivity implements Response
                         parametros_1.putString("cantLexemas", cantLexemas);
                         parametros_1.putString("letrainicial", letrainicial);
 
-                        Toast.makeText(getApplicationContext(), "oracion: " + oracion, Toast.LENGTH_LONG).show();
+                       // Toast.makeText(getApplicationContext(), "oracion: " + oracion, Toast.LENGTH_LONG).show();
 
                         //tipo1LexicoUpdateFragment = new Tipo1LexicoUpdateFragment();
                         //tipo1LexicoUpdateFragment.setArguments(parametros_1);
@@ -473,7 +473,7 @@ public class MisEjerciciosActivity extends AppCompatActivity implements Response
 
         else if (buscar.equals("1")) {//------------------------------------------------------------------------------------1
 
-            Toast.makeText(getApplicationContext(), "grupo g3 activo: ", Toast.LENGTH_LONG).show();
+           // Toast.makeText(getApplicationContext(), "grupo g3 activo: ", Toast.LENGTH_LONG).show();
 
             ejercicioG2HasImagen = null;
             JSONArray json = response.optJSONArray("ejerg2hasimagen");
@@ -529,7 +529,7 @@ public class MisEjerciciosActivity extends AppCompatActivity implements Response
                     cargarEjerciciosPorActividad();
                 }
                 if (idtipo == 6) {
-                    Toast.makeText(getApplicationContext(), "idtipo*******: " + idtipo, Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(), "idtipo*******: " + idtipo, Toast.LENGTH_LONG).show();
                     getSupportFragmentManager().beginTransaction().replace(R.id.container_docente_edit_ejer, tipo2silabicoEstudianteFragment)
                             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                             .addToBackStack(null).commit();

@@ -160,11 +160,11 @@ public class NotasActivity extends AppCompatActivity implements Response.Listene
 
                         btn_verporcentaje.setVisibility(View.VISIBLE);
                         rv_docente_notas.setVisibility(View.VISIBLE);
-                        Toast.makeText(getApplicationContext(), "Notas Home", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(), "Notas Home", Toast.LENGTH_LONG).show();
                         break;
 
                     case R.id.btn_estudiante:
-                        Toast.makeText(getApplicationContext(), "Notas X Estudiante", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(), "Notas X Estudiante", Toast.LENGTH_LONG).show();
                         rv_docente_notas.setVisibility(View.GONE);
                         btn_verporcentaje.setVisibility(View.GONE);
 
@@ -182,7 +182,7 @@ public class NotasActivity extends AppCompatActivity implements Response.Listene
 
                         break;
                     case R.id.btn_grupos:
-                        Toast.makeText(getApplicationContext(), "Notas X Estudiante", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(), "Notas X Estudiante", Toast.LENGTH_LONG).show();
                         rv_docente_notas.setVisibility(View.GONE);
                         btn_verporcentaje.setVisibility(View.GONE);
                         Bundle args2 = new Bundle();
@@ -273,7 +273,7 @@ public class NotasActivity extends AppCompatActivity implements Response.Listene
     @Override
     public void onErrorResponse(VolleyError error) {
         progreso.hide();
-        Toast.makeText(getApplicationContext(), "No se puede cone , grupo doc" + error.toString(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "No se puede cone , grupo doc" , Toast.LENGTH_LONG).show();
         System.out.println();
         Log.d("ERROR notasact: ", error.toString());
         progreso.hide();
@@ -327,7 +327,7 @@ public class NotasActivity extends AppCompatActivity implements Response.Listene
                 e.printStackTrace();
                 Log.d("error", response.toString());
 
-                Toast.makeText(getApplicationContext(), "No se ha podido establecer conexión: " + response.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "No se ha podido establecer conexión: " , Toast.LENGTH_LONG).show();
 
                 progreso.hide();
             }
@@ -383,7 +383,7 @@ public class NotasActivity extends AppCompatActivity implements Response.Listene
                     e.printStackTrace();
                     Log.d("error", response.toString());
 
-                    Toast.makeText(getApplicationContext(), "No se ha podido establecer conexión: " + response.toString(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "No se ha podido establecer conexión: " , Toast.LENGTH_LONG).show();
 
                     progreso.hide();
                 }

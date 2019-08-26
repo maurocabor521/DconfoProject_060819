@@ -133,7 +133,7 @@ public class LoginMainActivity extends AppCompatActivity implements Response.Lis
             int iddocente = docente.getIddocente();
             intent.putExtra("iddocente", iddocente);
             startActivity(intent);
-            Toast.makeText(getApplicationContext(), "DOCENTE: " + docente.getIddocente().toString(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "DOCENTE: " + docente.getIddocente().toString(), Toast.LENGTH_SHORT).show();
 
         } else if (usuario == "estudiante") {
             Estudiante estudiante = new Estudiante();

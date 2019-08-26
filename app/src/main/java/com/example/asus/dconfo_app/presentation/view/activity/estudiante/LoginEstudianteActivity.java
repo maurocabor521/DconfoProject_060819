@@ -171,7 +171,7 @@ public class LoginEstudianteActivity extends AppCompatActivity implements Respon
     @Override
     public void onErrorResponse(VolleyError error) {
         progreso.hide();
-        Toast.makeText(getApplicationContext(), "No se ha realizado la consulta de usuario" + error.toString(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "No se ha realizado la consulta de usuario" , Toast.LENGTH_LONG).show();
         Log.i("ERROR", error.toString());
     }
 
@@ -209,7 +209,7 @@ public class LoginEstudianteActivity extends AppCompatActivity implements Respon
             intent.putExtra("idestudiante", idestudiante);
             intent.putExtra("nameestudiante", nameestudiante);
             startActivity(intent);
-            Toast.makeText(getApplicationContext(), "ESTUDIANTE: " + estudiante.getIdestudiante().toString(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "ESTUDIANTE: " + estudiante.getIdestudiante().toString(), Toast.LENGTH_SHORT).show();
         }
       /*  } else if (usuario == "estudiante") {
             Estudiante estudiante = new Estudiante();
